@@ -77,18 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Dishplays — See dishes before you order" },
+      { title: "Servision — See dishes in 3D before you order" },
       {
         name: "description",
         content:
-          "Dishplays helps restaurants increase orders with interactive 3D and AR food experiences. Book a free demo.",
+          "Servision turns restaurant menus into interactive 3D & AR experiences. One QR code per dish. No app required.",
       },
-      { name: "author", content: "Dishplays" },
-      { property: "og:title", content: "Dishplays — See dishes before you order" },
+      { name: "author", content: "Servision" },
+      { property: "og:title", content: "Servision — 3D & AR menus for restaurants" },
       {
         property: "og:description",
         content:
-          "Interactive 3D and AR food visualization for modern restaurants.",
+          "Interactive 3D and AR dish visualization for independent restaurants.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
