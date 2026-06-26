@@ -12,9 +12,9 @@ export const brand = {
   name: "Servision",
   domain: "servision.ca",
   logoUrl: logoAsset.url,
-  contactEmail: "contact@servision.ca",
-  ctaUrl: "mailto:contact@servision.ca?subject=Servision%20—%20I'd%20like%20to%20get%20started",
-  enterpriseUrl: "mailto:contact@servision.ca?subject=Servision%20for%20Franchises%20—%20Custom%20quote",
+  contactEmail: "ServisionAr@gmail.com",
+  ctaUrl: "/contact",
+  enterpriseUrl: "/contact?plan=franchise",
   showcaseUrl: "#showcase",
 };
 
