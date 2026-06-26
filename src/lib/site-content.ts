@@ -103,7 +103,7 @@ export const pricingTiers: PricingTier[] = [
       "Cancel anytime",
     ],
     ctaLabel: "Get Started",
-    ctaUrl: "mailto:contact@servision.ca?subject=Servision%20Starter%20—%20I'd%20like%20to%20get%20started",
+    ctaUrl: "/contact?plan=starter",
   },
   {
     id: "growth",
@@ -121,7 +121,7 @@ export const pricingTiers: PricingTier[] = [
       "Cancel anytime",
     ],
     ctaLabel: "Get Started",
-    ctaUrl: "mailto:contact@servision.ca?subject=Servision%20Growth%20—%20I'd%20like%20to%20get%20started",
+    ctaUrl: "/contact?plan=growth",
     highlight: true,
   },
   {
@@ -138,6 +138,6 @@ export const pricingTiers: PricingTier[] = [
       "Dedicated account manager",
     ],
     ctaLabel: "Contact Sales",
-    ctaUrl: "mailto:contact@servision.ca?subject=Servision%20for%20Franchises%20—%20Custom%20quote",
+    ctaUrl: "/contact?plan=franchise",
   },
 ];
