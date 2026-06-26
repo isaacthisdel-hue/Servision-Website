@@ -73,7 +73,7 @@ function Wordmark({ className = "h-7" }: { className?: string }) {
     <img
       src={brand.logoUrl}
       alt={brand.name}
-      className={`${className} w-auto select-none`}
+      className={`${className} w-auto select-none mix-blend-multiply`}
       draggable={false}
     />
   );
