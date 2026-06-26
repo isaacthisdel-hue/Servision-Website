@@ -15,7 +15,7 @@ import {
   Hand,
 } from "lucide-react";
 import oldMenu from "@/assets/old-menu.jpg";
-import { brand, dishes, testimonials, logos, pricing } from "@/lib/site-content";
+import { brand, dishes, testimonials, logos, pricingTiers } from "@/lib/site-content";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -436,50 +436,88 @@ function SocialProof() {
 function Pricing() {
   return (
     <section id="pricing" className="py-24 sm:py-32 bg-beige/40">
-      <div className="mx-auto max-w-3xl px-4">
-        <div className="text-center max-w-xl mx-auto space-y-4 mb-12">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="text-center max-w-2xl mx-auto space-y-4 mb-14">
           <SectionLabel>Pricing</SectionLabel>
           <h2 className="font-serif text-4xl sm:text-5xl tracking-tight">
-            One plan. Up to {pricing.bundleSize} dishes.
+            Plans that scale with your kitchen.
           </h2>
           <p className="text-base text-muted-foreground">
-            Built, hosted and maintained for you. Cancel anytime.
+            Pick the bundle that fits your menu. We build, host and maintain
+            everything for you.
           </p>
         </div>
-        <div className="surface rounded-3xl p-8 sm:p-10">
-          <div className="grid sm:grid-cols-2 gap-8 items-start">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-accent mb-3">
-                Restaurant Bundle
-              </p>
-              <div className="flex items-baseline gap-1 mb-2">
-                <span className="font-serif text-6xl tracking-tight">
-                  ${pricing.price}
+        <div className="grid md:grid-cols-3 gap-5 items-stretch">
+          {pricingTiers.map((tier) => (
+            <div
+              key={tier.id}
+              className={`relative rounded-3xl p-8 flex flex-col ${
+                tier.highlight ? "bg-foreground text-background shadow-xl" : "surface"
+              }`}
+            >
+              {tier.highlight && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent text-accent-foreground px-3 py-1 text-[10px] uppercase tracking-widest font-semibold">
+                  Most popular
                 </span>
-                <span className="text-muted-foreground text-base">{pricing.priceUnit}</span>
-              </div>
-              <p className="text-sm text-muted-foreground mb-6">
-                <span className="font-semibold text-foreground">
-                  ${pricing.setupFee} one-time setup
-                </span>{" "}
-                — covers scanning, 3D modelling and QR generation for your
-                whole bundle.
+              )}
+              <p className="text-xs uppercase tracking-widest mb-2 text-accent">
+                {tier.name}
               </p>
-              <Button href={brand.ctaUrl}>
-                Get Started <ArrowRight className="h-4 w-4" />
-              </Button>
-            </div>
-            <ul className="space-y-3">
-              {pricing.features.map((f) => (
-                <li key={f} className="flex items-start gap-3 text-sm">
-                  <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-beige text-accent">
-                    <Check className="h-3 w-3" />
+              <p
+                className={`text-sm mb-5 ${
+                  tier.highlight ? "text-background/70" : "text-muted-foreground"
+                }`}
+              >
+                {tier.audience}
+              </p>
+              <div className="flex items-baseline gap-1 mb-1">
+                <span className="font-serif text-5xl tracking-tight">{tier.price}</span>
+                {tier.priceUnit && (
+                  <span
+                    className={`text-base ${
+                      tier.highlight ? "text-background/70" : "text-muted-foreground"
+                    }`}
+                  >
+                    {tier.priceUnit}
                   </span>
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+                )}
+              </div>
+              <p
+                className={`text-sm mb-6 min-h-[2.5rem] ${
+                  tier.highlight ? "text-background/70" : "text-muted-foreground"
+                }`}
+              >
+                {tier.setupNote ? tier.setupNote + " · " : ""}
+                {tier.bundleSize}
+              </p>
+              <ul className="space-y-3 mb-8">
+                {tier.features.map((f) => (
+                  <li key={f} className="flex items-start gap-3 text-sm">
+                    <span
+                      className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full ${
+                        tier.highlight ? "bg-background/15 text-accent" : "bg-beige text-accent"
+                      }`}
+                    >
+                      <Check className="h-3 w-3" />
+                    </span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-auto">
+                <a
+                  href={tier.ctaUrl}
+                  className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 ${
+                    tier.highlight
+                      ? "bg-accent text-accent-foreground hover:-translate-y-0.5"
+                      : "bg-primary text-primary-foreground hover:bg-ink/90 hover:-translate-y-0.5"
+                  }`}
+                >
+                  {tier.ctaLabel} <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -12,7 +12,9 @@ export const brand = {
   name: "Servision",
   domain: "servision.ca",
   logoUrl: logoAsset.url,
-  ctaUrl: "#contact",
+  contactEmail: "contact@servision.ca",
+  ctaUrl: "mailto:contact@servision.ca?subject=Servision%20—%20I'd%20like%20to%20get%20started",
+  enterpriseUrl: "mailto:contact@servision.ca?subject=Servision%20for%20Franchises%20—%20Custom%20quote",
   showcaseUrl: "#showcase",
 };
 
@@ -69,18 +71,73 @@ export const testimonials = [
 
 export const logos = ["NORTHSIDE", "EMBER & OAK", "TRATTORIA NOVA", "KAITEN", "MAISON 8"];
 
-// Bundle pricing — up to 10 dishes per plan.
-export const pricing = {
-  price: 49,
-  priceUnit: "/month",
-  setupFee: 39,
-  bundleSize: 10,
-  features: [
-    "Up to 10 dishes per location",
-    "Photorealistic 3D + AR models",
-    "Unique QR code for every dish",
-    "Hosted & maintained for you",
-    "Works on any phone — no app",
-    "Cancel anytime",
-  ],
+// Tiered pricing — sized by restaurant type.
+export type PricingTier = {
+  id: string;
+  name: string;
+  audience: string;
+  price: string;
+  priceUnit?: string;
+  setupNote?: string;
+  bundleSize?: string;
+  features: string[];
+  ctaLabel: string;
+  ctaUrl: string;
+  highlight?: boolean;
 };
+
+export const pricingTiers: PricingTier[] = [
+  {
+    id: "starter",
+    name: "Starter",
+    audience: "Small independent restaurants",
+    price: "$49",
+    priceUnit: "/month",
+    setupNote: "$39 one-time setup",
+    bundleSize: "Up to 10 dishes",
+    features: [
+      "Up to 10 dishes per location",
+      "Photorealistic 3D + AR models",
+      "Unique QR code for every dish",
+      "Hosted & maintained for you",
+      "Cancel anytime",
+    ],
+    ctaLabel: "Get Started",
+    ctaUrl: "mailto:contact@servision.ca?subject=Servision%20Starter%20—%20I'd%20like%20to%20get%20started",
+  },
+  {
+    id: "growth",
+    name: "Growth",
+    audience: "Medium independent restaurants",
+    price: "$99",
+    priceUnit: "/month",
+    setupNote: "$69 one-time setup",
+    bundleSize: "Up to 24 dishes",
+    features: [
+      "Up to 24 dishes per location",
+      "Everything in Starter",
+      "Priority dish updates",
+      "Seasonal menu swaps included",
+      "Cancel anytime",
+    ],
+    ctaLabel: "Get Started",
+    ctaUrl: "mailto:contact@servision.ca?subject=Servision%20Growth%20—%20I'd%20like%20to%20get%20started",
+    highlight: true,
+  },
+  {
+    id: "franchise",
+    name: "Franchise",
+    audience: "Chains & multi-location groups",
+    price: "Let's talk",
+    bundleSize: "Unlimited dishes & locations",
+    features: [
+      "Unlimited dishes per location",
+      "Multi-location rollout & support",
+      "Centralized menu management",
+      "Custom branding & integrations",
+      "Dedicated account manager",
+    ],
+    ctaLabel: "Contact Sales",
+    ctaUrl: "mailto:contact@servision.ca?subject=Servision%20for%20Franchises%20—%20Custom%20quote",
+  },
+];
