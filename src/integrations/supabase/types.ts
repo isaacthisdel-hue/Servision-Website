@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leads: {
+        Row: {
+          city: string | null
+          created_at: string
+          dish_count: number | null
+          email: string
+          full_name: string
+          hear_about: string | null
+          id: string
+          message: string | null
+          phone: string | null
+          plan: string | null
+          preferred_contact: string | null
+          restaurant_name: string
+          restaurant_type: string | null
+          user_agent: string | null
+          website: string | null
+        }
+        Insert: {
+          city?: string | null
+          created_at?: string
+          dish_count?: number | null
+          email: string
+          full_name: string
+          hear_about?: string | null
+          id?: string
+          message?: string | null
+          phone?: string | null
+          plan?: string | null
+          preferred_contact?: string | null
+          restaurant_name: string
+          restaurant_type?: string | null
+          user_agent?: string | null
+          website?: string | null
+        }
+        Update: {
+          city?: string | null
+          created_at?: string
+          dish_count?: number | null
+          email?: string
+          full_name?: string
+          hear_about?: string | null
+          id?: string
+          message?: string | null
+          phone?: string | null
+          plan?: string | null
+          preferred_contact?: string | null
+          restaurant_name?: string
+          restaurant_type?: string | null
+          user_agent?: string | null
+          website?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
