@@ -478,6 +478,15 @@ function Pricing() {
                   </span>
                 )}
               </div>
+              {tier.term && (
+                <p
+                  className={`text-xs mb-3 ${
+                    tier.highlight ? "text-background/60" : "text-muted-foreground/80"
+                  }`}
+                >
+                  {tier.term}
+                </p>
+              )}
               <p
                 className={`text-sm mb-6 min-h-[2.5rem] ${
                   tier.highlight ? "text-background/70" : "text-muted-foreground"
