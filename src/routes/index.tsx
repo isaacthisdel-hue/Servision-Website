@@ -439,8 +439,8 @@ function Pricing() {
             Plans that scale with your kitchen.
           </h2>
           <p className="text-base text-muted-foreground">
-            Pick the bundle that fits your menu. We build, host and maintain
-            everything for you.
+            Monthly billing on a 12-month plan — so your AR menu stays
+            consistent through every season.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-5 items-stretch">
