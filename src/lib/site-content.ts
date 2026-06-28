@@ -1,6 +1,6 @@
 // ============================================================
 // EDIT THIS FILE TO UPDATE ALL SITE CONTENT
-// (brand info, dishes, testimonials, pricing, links)
+// (brand info, dishes, pricing, links)
 // Images live in src/assets/ — replace the files there to swap.
 // ============================================================
 import dishBurger from "@/assets/dish-burger.jpg";
@@ -54,22 +54,29 @@ export const dishes: Dish[] = [
   },
 ];
 
-export const testimonials = [
+// Honest rollout timeline — used to replace fabricated social proof.
+export const rolloutSteps = [
   {
-    quote:
-      "Guests spend more time on the menu and try dishes they'd normally skip.",
-    author: "Marco R.",
-    role: "Owner, Trattoria Nova",
+    day: "Day 1",
+    title: "Quick call",
+    desc: "We confirm your dish list and lock in a scan date.",
   },
   {
-    quote:
-      "Average check went up the week we rolled it out. It pays for itself.",
-    author: "Sasha L.",
-    role: "GM, Ember & Oak",
+    day: "Day 2–3",
+    title: "On-site scan",
+    desc: "We come to your kitchen and capture every dish — about 15 minutes each.",
+  },
+  {
+    day: "Day 4–6",
+    title: "We build the models",
+    desc: "Photoreal 3D, mobile-optimized, AR-ready and hosted on our side.",
+  },
+  {
+    day: "Day 7",
+    title: "QR codes live",
+    desc: "Print-ready QR codes arrive for tables, menus and socials.",
   },
 ];
-
-export const logos = ["NORTHSIDE", "EMBER & OAK", "TRATTORIA NOVA", "KAITEN", "MAISON 8"];
 
 // Tiered pricing — sized by restaurant type.
 export type PricingTier = {
@@ -78,6 +85,7 @@ export type PricingTier = {
   audience: string;
   price: string;
   priceUnit?: string;
+  term?: string;
   setupNote?: string;
   bundleSize?: string;
   features: string[];
@@ -93,6 +101,7 @@ export const pricingTiers: PricingTier[] = [
     audience: "Small independent restaurants",
     price: "$49",
     priceUnit: "/month",
+    term: "Billed monthly · 12-month commitment",
     setupNote: "$39 one-time setup",
     bundleSize: "Up to 10 dishes",
     features: [
@@ -100,7 +109,6 @@ export const pricingTiers: PricingTier[] = [
       "Photorealistic 3D + AR models",
       "Unique QR code for every dish",
       "Hosted & maintained for you",
-      "Cancel anytime",
     ],
     ctaLabel: "Get Started",
     ctaUrl: "/contact?plan=starter",
@@ -111,14 +119,16 @@ export const pricingTiers: PricingTier[] = [
     audience: "Medium independent restaurants",
     price: "$99",
     priceUnit: "/month",
+    term: "Billed monthly · 12-month commitment",
     setupNote: "$69 one-time setup",
     bundleSize: "Up to 24 dishes",
     features: [
-      "Up to 24 dishes per location",
       "Everything in Starter",
+      "Up to 24 dishes per location",
+      "Photorealistic 3D + AR models",
+      "Unique QR code for every dish",
+      "One full menu refresh per year (swap or update any number of dishes)",
       "Priority dish updates",
-      "Seasonal menu swaps included",
-      "Cancel anytime",
     ],
     ctaLabel: "Get Started",
     ctaUrl: "/contact?plan=growth",
@@ -129,13 +139,12 @@ export const pricingTiers: PricingTier[] = [
     name: "Franchise",
     audience: "Chains & multi-location groups",
     price: "Let's talk",
+    term: "Annual contract, terms tailored to your group",
     bundleSize: "Unlimited dishes & locations",
     features: [
       "Unlimited dishes per location",
       "Multi-location rollout & support",
-      "Centralized menu management",
       "Custom branding & integrations",
-      "Dedicated account manager",
     ],
     ctaLabel: "Contact Sales",
     ctaUrl: "/contact?plan=franchise",
