@@ -630,6 +630,7 @@ function HomePage() {
         <Hero />
         <HowItWorks />
         <Showcase />
+        <DeliveryMethods />
         <Why />
         <BeforeAfter />
         <Rollout />
