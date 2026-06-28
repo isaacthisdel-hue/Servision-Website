@@ -573,7 +573,7 @@ function HomePage() {
         <Showcase />
         <Why />
         <BeforeAfter />
-        <SocialProof />
+        <Rollout />
         <Pricing />
         <FinalCTA />
       </main>
