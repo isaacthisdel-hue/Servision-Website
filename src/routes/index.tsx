@@ -15,7 +15,7 @@ import {
   Hand,
 } from "lucide-react";
 import oldMenu from "@/assets/old-menu.jpg";
-import { brand, dishes, testimonials, logos, pricingTiers } from "@/lib/site-content";
+import { brand, dishes, rolloutSteps, pricingTiers } from "@/lib/site-content";
 
 export const Route = createFileRoute("/")({
   head: () => ({
