@@ -293,6 +293,54 @@ function Showcase() {
   );
 }
 
+/* ----------------------------- Delivery Methods -------------------------- */
+
+function DeliveryMethods() {
+  const methods = [
+    {
+      icon: QrCode,
+      title: "QR codes",
+      desc: "Place on tables, physical menus, window displays, or check presenters. Guests scan with any phone camera — no app needed.",
+    },
+    {
+      icon: Link2,
+      title: "Direct links",
+      desc: "Embed on your website, Instagram bio, Google Business profile, or online ordering platform. The same 3D / AR experience opens from any link.",
+    },
+  ];
+  return (
+    <section className="py-24 sm:py-32">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
+          <div className="space-y-4 max-w-xl">
+            <SectionLabel>Works everywhere</SectionLabel>
+            <h2 className="font-serif text-4xl sm:text-5xl tracking-tight">
+              QR codes for the table. Links for everything else.
+            </h2>
+          </div>
+          <p className="text-sm text-muted-foreground max-w-sm">
+            Whether guests are sitting down or browsing online, every dish is
+            one tap away from a true-to-life 3D preview.
+          </p>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-5">
+          {methods.map((m) => (
+            <div key={m.title} className="surface hover-lift rounded-2xl p-6 flex gap-5">
+              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-beige text-accent">
+                <m.icon className="h-5 w-5" />
+              </div>
+              <div className="min-w-0">
+                <h3 className="font-semibold">{m.title}</h3>
+                <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{m.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------------------------------- Why --------------------------------- */
 
 function Why() {
