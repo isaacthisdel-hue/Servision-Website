@@ -394,42 +394,38 @@ function BeforeAfter() {
   );
 }
 
-/* ----------------------------- Social proof ----------------------------- */
+/* ------------------------------ Rollout --------------------------------- */
 
-function SocialProof() {
+function Rollout() {
   return (
     <section className="py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="text-center mb-10">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            Trusted by independent restaurants
-          </p>
+        <div className="text-center max-w-2xl mx-auto space-y-4 mb-14">
+          <SectionLabel>What to expect</SectionLabel>
+          <h2 className="font-serif text-4xl sm:text-5xl tracking-tight">
+            From first call to live QR codes in under a week.
+          </h2>
         </div>
-        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 mb-16">
-          {logos.map((l) => (
-            <span key={l} className="text-sm font-bold tracking-widest text-muted-foreground">
-              {l}
-            </span>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {rolloutSteps.map((step, i) => (
+            <div key={step.day} className="surface hover-lift rounded-2xl p-6 relative">
+              <div className="text-xs font-mono text-accent mb-4">{step.day}</div>
+              <div className="text-xs font-mono text-muted-foreground/60 absolute top-6 right-6">
+                0{i + 1}
+              </div>
+              <h3 className="font-semibold mb-2">{step.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+            </div>
           ))}
         </div>
-        <div className="grid md:grid-cols-2 gap-5">
-          {testimonials.map((t) => (
-            <figure key={t.author} className="surface rounded-2xl p-7">
-              <blockquote className="font-serif text-2xl leading-snug">
-                <span className="text-accent">“</span>
-                {t.quote}
-                <span className="text-accent">”</span>
-              </blockquote>
-              <figcaption className="mt-5 text-sm text-muted-foreground">
-                <span className="text-foreground font-medium">{t.author}</span> · {t.role}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        <p className="text-center text-sm text-muted-foreground mt-10">
+          No app for guests. No integration for your POS. No work for your staff.
+        </p>
       </div>
     </section>
   );
 }
+
 
 /* -------------------------------- Pricing ------------------------------- */
 
