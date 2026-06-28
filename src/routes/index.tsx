@@ -13,6 +13,8 @@ import {
   ImageIcon,
   Eye,
   Hand,
+  Link2,
+  Globe,
 } from "lucide-react";
 import oldMenu from "@/assets/old-menu.jpg";
 import { brand, dishes, rolloutSteps, pricingTiers } from "@/lib/site-content";
