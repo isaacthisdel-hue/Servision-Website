@@ -1,0 +1,66 @@
+name: Deploy Lovable App to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build project
+        run: npm run build
+
+      - name: Find build output folder
+        run: |
+          echo "Checking build output..."
+
+          if [ -d "dist" ]; then
+            echo "Using dist"
+            mv dist site
+          elif [ -d "build" ]; then
+            echo "Using build"
+            mv build site
+          elif [ -d "out" ]; then
+            echo "Using out"
+            mv out site
+          else
+            echo "❌ No build folder found"
+            ls -la
+            exit 1
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
