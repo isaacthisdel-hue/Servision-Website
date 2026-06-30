@@ -3,7 +3,7 @@ import { useState, type FormEvent } from "react";
 import { z } from "zod";
 import { ArrowLeft, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { brand, pricingTiers } from "@/lib/site-content";
-import { supabase } from "@/integrations/supabase/client";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjkbeaz";
 
 type Search = { plan?: string };
 
@@ -125,25 +125,30 @@ function ContactPage() {
     setSubmitting(true);
     try {
       const planTier = pricingTiers.find((t) => t.id === selectedPlan);
-      const dishCountParsed = data.dish_count ? parseInt(data.dish_count, 10) : null;
-      const { error } = await supabase.from("leads").insert({
-        plan: planTier?.name ?? selectedPlan ?? null,
+      const payload = {
+        plan: planTier?.name ?? selectedPlan ?? "",
+        name: data.full_name,
         full_name: data.full_name,
         email: data.email,
-        phone: data.phone || null,
+        phone: data.phone || "",
         restaurant_name: data.restaurant_name,
-        restaurant_type: data.restaurant_type || null,
-        city: data.city || null,
-        website: data.website || null,
-        dish_count: Number.isFinite(dishCountParsed) ? dishCountParsed : null,
-        preferred_contact: data.preferred_contact || null,
-        hear_about: data.hear_about || null,
-        message: data.message || null,
-        user_agent:
-          typeof navigator !== "undefined" ? navigator.userAgent.slice(0, 500) : null,
+        restaurant_type: data.restaurant_type || "",
+        city: data.city || "",
+        website: data.website || "",
+        dish_count: data.dish_count || "",
+        preferred_contact: data.preferred_contact || "",
+        hear_about: data.hear_about || "",
+        message: data.message || "",
+        _subject: `New Servision lead — ${data.restaurant_name} (${planTier?.name ?? selectedPlan})`,
+      };
+
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
       });
 
-      if (error) throw error;
+      if (!res.ok) throw new Error(`Formspree error ${res.status}`);
       setSuccess(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
