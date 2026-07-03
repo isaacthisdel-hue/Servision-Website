@@ -605,19 +605,7 @@ function FinalCTA() {
 
 /* --------------------------------- Footer ------------------------------- */
 
-function Footer() {
-  return (
-    <footer className="border-t border-ink/10 py-10">
-      <div className="mx-auto max-w-6xl px-4 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-sm text-muted-foreground">
-        <div className="flex items-center gap-3">
-          <Wordmark className="h-4" />
-          <span>· {brand.domain}</span>
-        </div>
-        <div>© {new Date().getFullYear()} {brand.name}. All rights reserved.</div>
-      </div>
-    </footer>
-  );
-}
+import { SiteFooter as Footer } from "@/components/SiteFooter";
 
 /* ---------------------------------- Page -------------------------------- */
 

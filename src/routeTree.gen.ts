@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LegalTermsRouteImport } from './routes/legal.terms'
+import { Route as LegalSubscriptionRouteImport } from './routes/legal.subscription'
 import { Route as LegalRefundRouteImport } from './routes/legal.refund'
 import { Route as LegalPrivacyRouteImport } from './routes/legal.privacy'
 
@@ -30,6 +31,11 @@ const LegalTermsRoute = LegalTermsRouteImport.update({
   path: '/legal/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LegalSubscriptionRoute = LegalSubscriptionRouteImport.update({
+  id: '/legal/subscription',
+  path: '/legal/subscription',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LegalRefundRoute = LegalRefundRouteImport.update({
   id: '/legal/refund',
   path: '/legal/refund',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/refund': typeof LegalRefundRoute
+  '/legal/subscription': typeof LegalSubscriptionRoute
   '/legal/terms': typeof LegalTermsRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/refund': typeof LegalRefundRoute
+  '/legal/subscription': typeof LegalSubscriptionRoute
   '/legal/terms': typeof LegalTermsRoute
 }
 export interface FileRoutesById {
@@ -61,6 +69,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/refund': typeof LegalRefundRoute
+  '/legal/subscription': typeof LegalSubscriptionRoute
   '/legal/terms': typeof LegalTermsRoute
 }
 export interface FileRouteTypes {
@@ -70,15 +79,23 @@ export interface FileRouteTypes {
     | '/contact'
     | '/legal/privacy'
     | '/legal/refund'
+    | '/legal/subscription'
     | '/legal/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/legal/privacy' | '/legal/refund' | '/legal/terms'
+  to:
+    | '/'
+    | '/contact'
+    | '/legal/privacy'
+    | '/legal/refund'
+    | '/legal/subscription'
+    | '/legal/terms'
   id:
     | '__root__'
     | '/'
     | '/contact'
     | '/legal/privacy'
     | '/legal/refund'
+    | '/legal/subscription'
     | '/legal/terms'
   fileRoutesById: FileRoutesById
 }
@@ -87,6 +104,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   LegalPrivacyRoute: typeof LegalPrivacyRoute
   LegalRefundRoute: typeof LegalRefundRoute
+  LegalSubscriptionRoute: typeof LegalSubscriptionRoute
   LegalTermsRoute: typeof LegalTermsRoute
 }
 
@@ -113,6 +131,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LegalTermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/legal/subscription': {
+      id: '/legal/subscription'
+      path: '/legal/subscription'
+      fullPath: '/legal/subscription'
+      preLoaderRoute: typeof LegalSubscriptionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/legal/refund': {
       id: '/legal/refund'
       path: '/legal/refund'
@@ -135,6 +160,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   LegalPrivacyRoute: LegalPrivacyRoute,
   LegalRefundRoute: LegalRefundRoute,
+  LegalSubscriptionRoute: LegalSubscriptionRoute,
   LegalTermsRoute: LegalTermsRoute,
 }
 export const routeTree = rootRouteImport
