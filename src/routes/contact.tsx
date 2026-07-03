@@ -432,6 +432,7 @@ function ContactPage() {
           </p>
         </form>
       </div>
+      <SiteFooter />
     </main>
   );
 }
