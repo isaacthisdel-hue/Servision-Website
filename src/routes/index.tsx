@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import oldMenu from "@/assets/old-menu.jpg";
 import { brand, dishes, rolloutSteps, pricingTiers } from "@/lib/site-content";
+import { SiteFooter as Footer } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/")({
   head: () => ({
