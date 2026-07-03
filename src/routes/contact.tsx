@@ -183,6 +183,7 @@ function ContactPage() {
             </button>
           </div>
         </div>
+        <SiteFooter />
       </main>
     );
   }
