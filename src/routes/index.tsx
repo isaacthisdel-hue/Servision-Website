@@ -604,9 +604,7 @@ function FinalCTA() {
   );
 }
 
-/* --------------------------------- Footer ------------------------------- */
-
-import { SiteFooter as Footer } from "@/components/SiteFooter";
+/* --------------------------------- Footer imported from @/components/SiteFooter ---------------- */
 
 /* ---------------------------------- Page -------------------------------- */
 
