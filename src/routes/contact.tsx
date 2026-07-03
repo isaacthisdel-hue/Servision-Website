@@ -3,6 +3,7 @@ import { useState, type FormEvent } from "react";
 import { z } from "zod";
 import { ArrowLeft, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { brand, pricingTiers } from "@/lib/site-content";
+import { SiteFooter } from "@/components/SiteFooter";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjkbeaz";
 
 type Search = { plan?: string };
