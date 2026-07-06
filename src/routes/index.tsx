@@ -413,7 +413,7 @@ function BeforeAfter() {
         <div className="grid md:grid-cols-2 gap-5">
           <div className="relative rounded-2xl overflow-hidden border border-ink/10 aspect-[4/3] bg-background">
             <img
-              src={oldMenu}
+              src={media.oldMenu}
               alt="Traditional paper menu"
               loading="lazy"
               width={1024}
