@@ -33,23 +33,23 @@ export const dishes: Dish[] = [
   {
     name: "Signature Burger",
     description: "Aged beef, brioche bun, house sauce.",
-    image: dishBurger,
-    arUrl: "https://servision.ca/ar/burger",
-    qrUrl: qr("https://servision.ca/ar/burger"),
+    image: media.dishes.burger,
+    arUrl: arLinks.burger,
+    qrUrl: qr(arLinks.burger),
   },
   {
     name: "Omakase Roll",
     description: "Daily selection, hand-pressed sushi.",
-    image: dishSushi,
-    arUrl: "https://servision.ca/ar/sushi",
-    qrUrl: qr("https://servision.ca/ar/sushi"),
+    image: media.dishes.sushi,
+    arUrl: arLinks.sushi,
+    qrUrl: qr(arLinks.sushi),
   },
   {
     name: "Truffle Tagliolini",
     description: "Fresh pasta, black truffle, parmigiano.",
-    image: dishPasta,
-    arUrl: "https://servision.ca/ar/pasta",
-    qrUrl: qr("https://servision.ca/ar/pasta"),
+    image: media.dishes.pasta,
+    arUrl: arLinks.pasta,
+    qrUrl: qr(arLinks.pasta),
   },
 ];
 
