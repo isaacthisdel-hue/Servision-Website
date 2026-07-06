@@ -15,7 +15,7 @@ import {
   Hand,
   Link2,
 } from "lucide-react";
-import oldMenu from "@/assets/old-menu.jpg";
+import { media } from "@/lib/media";
 import { brand, dishes, rolloutSteps, pricingTiers } from "@/lib/site-content";
 import { SiteFooter as Footer } from "@/components/SiteFooter";
 
@@ -413,7 +413,7 @@ function BeforeAfter() {
         <div className="grid md:grid-cols-2 gap-5">
           <div className="relative rounded-2xl overflow-hidden border border-ink/10 aspect-[4/3] bg-background">
             <img
-              src={oldMenu}
+              src={media.oldMenu}
               alt="Traditional paper menu"
               loading="lazy"
               width={1024}

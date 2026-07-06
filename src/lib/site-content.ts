@@ -1,22 +1,21 @@
 // ============================================================
-// EDIT THIS FILE TO UPDATE ALL SITE CONTENT
-// (brand info, dishes, pricing, links)
-// Images live in src/assets/ — replace the files there to swap.
+// SITE CONTENT — copy, pricing tiers and the rollout timeline.
+//
+// Looking for logos, images or dish links?
+// → those live in `src/lib/media.ts` (one file, easy to swap).
 // ============================================================
-import dishBurger from "@/assets/dish-burger.jpg";
-import dishSushi from "@/assets/dish-sushi.jpg";
-import dishPasta from "@/assets/dish-pasta.jpg";
-import logoAsset from "@/assets/servision-logo.png.asset.json";
+import { media, arLinks } from "./media";
 
 export const brand = {
   name: "Servision",
   domain: "servision.ca",
-  logoUrl: logoAsset.url,
+  logoUrl: media.logo,
   contactEmail: "ServisionAr@gmail.com",
   ctaUrl: "/contact",
   enterpriseUrl: "/contact?plan=franchise",
   showcaseUrl: "#showcase",
 };
+
 
 export type Dish = {
   name: string;
@@ -34,23 +33,23 @@ export const dishes: Dish[] = [
   {
     name: "Signature Burger",
     description: "Aged beef, brioche bun, house sauce.",
-    image: dishBurger,
-    arUrl: "https://servision.ca/ar/burger",
-    qrUrl: qr("https://servision.ca/ar/burger"),
+    image: media.dishes.burger,
+    arUrl: arLinks.burger,
+    qrUrl: qr(arLinks.burger),
   },
   {
     name: "Omakase Roll",
     description: "Daily selection, hand-pressed sushi.",
-    image: dishSushi,
-    arUrl: "https://servision.ca/ar/sushi",
-    qrUrl: qr("https://servision.ca/ar/sushi"),
+    image: media.dishes.sushi,
+    arUrl: arLinks.sushi,
+    qrUrl: qr(arLinks.sushi),
   },
   {
     name: "Truffle Tagliolini",
     description: "Fresh pasta, black truffle, parmigiano.",
-    image: dishPasta,
-    arUrl: "https://servision.ca/ar/pasta",
-    qrUrl: qr("https://servision.ca/ar/pasta"),
+    image: media.dishes.pasta,
+    arUrl: arLinks.pasta,
+    qrUrl: qr(arLinks.pasta),
   },
 ];
 
