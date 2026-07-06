@@ -64,7 +64,7 @@ function SubscriptionPage() {
               "Photorealistic 3D + AR models",
               "Unique QR code for every dish",
               "Hosting included",
-              "12-month minimum commitment",
+              "Annual Service Agreement, billed monthly",
             ]}
           />
           <Plan
@@ -76,7 +76,7 @@ function SubscriptionPage() {
               "Up to 24 dishes per location",
               "One full menu refresh per year",
               "Priority dish updates",
-              "12-month minimum commitment",
+              "Annual Service Agreement, billed monthly",
             ]}
           />
           <Plan
@@ -104,13 +104,15 @@ function SubscriptionPage() {
         />
       </Section>
 
-      <Section heading="3. Commitment term">
+      <Section heading="3. Annual Service Agreement">
         <p>
-          Starter and Growth plans are billed monthly on a 12-month commitment.
-          The Franchise plan is offered on an annual contract with terms
-          tailored to the group. Subscriptions renew automatically at the end
-          of the term unless the client provides written notice of
-          non-renewal.
+          Starter and Growth plans operate under an Annual Service Agreement,
+          billed monthly over a 12-month term. The Franchise plan is offered
+          on an annual contract with terms tailored to the group.
+          Subscriptions renew automatically at the end of the annual term
+          unless the client provides written notice of non-renewal. Clients
+          may cancel at any time, subject to the early termination fee
+          described in the Refund & Cancellation Policy.
         </p>
       </Section>
 

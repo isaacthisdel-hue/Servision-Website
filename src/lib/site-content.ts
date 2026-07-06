@@ -101,7 +101,7 @@ export const pricingTiers: PricingTier[] = [
     audience: "Small independent restaurants",
     price: "$49",
     priceUnit: "/month",
-    term: "Billed monthly · 12-month commitment",
+    term: "Annual Service Agreement · billed monthly",
     setupNote: "$39 one-time setup",
     bundleSize: "Up to 10 dishes",
     features: [
@@ -119,7 +119,7 @@ export const pricingTiers: PricingTier[] = [
     audience: "Medium independent restaurants",
     price: "$99",
     priceUnit: "/month",
-    term: "Billed monthly · 12-month commitment",
+    term: "Annual Service Agreement · billed monthly",
     setupNote: "$69 one-time setup",
     bundleSize: "Up to 24 dishes",
     features: [

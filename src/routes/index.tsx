@@ -489,8 +489,9 @@ function Pricing() {
             Plans that scale with your kitchen.
           </h2>
           <p className="text-base text-muted-foreground">
-            Monthly billing on a 12-month plan — so your AR menu stays
-            consistent through every season.
+            Annual Service Agreement, billed monthly. You can cancel anytime —
+            an early termination fee applies based on the time left on your
+            annual term.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-5 items-stretch">
