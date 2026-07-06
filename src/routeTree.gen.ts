@@ -15,6 +15,7 @@ import { Route as LegalTermsRouteImport } from './routes/legal.terms'
 import { Route as LegalSubscriptionRouteImport } from './routes/legal.subscription'
 import { Route as LegalRefundRouteImport } from './routes/legal.refund'
 import { Route as LegalPrivacyRouteImport } from './routes/legal.privacy'
+import { Route as ArSlugRouteImport } from './routes/ar/$slug'
 
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
@@ -46,10 +47,16 @@ const LegalPrivacyRoute = LegalPrivacyRouteImport.update({
   path: '/legal/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArSlugRoute = ArSlugRouteImport.update({
+  id: '/ar/$slug',
+  path: '/ar/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/ar/$slug': typeof ArSlugRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/refund': typeof LegalRefundRoute
   '/legal/subscription': typeof LegalSubscriptionRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/ar/$slug': typeof ArSlugRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/refund': typeof LegalRefundRoute
   '/legal/subscription': typeof LegalSubscriptionRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/ar/$slug': typeof ArSlugRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/refund': typeof LegalRefundRoute
   '/legal/subscription': typeof LegalSubscriptionRoute
@@ -77,6 +86,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/contact'
+    | '/ar/$slug'
     | '/legal/privacy'
     | '/legal/refund'
     | '/legal/subscription'
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contact'
+    | '/ar/$slug'
     | '/legal/privacy'
     | '/legal/refund'
     | '/legal/subscription'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/contact'
+    | '/ar/$slug'
     | '/legal/privacy'
     | '/legal/refund'
     | '/legal/subscription'
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
+  ArSlugRoute: typeof ArSlugRoute
   LegalPrivacyRoute: typeof LegalPrivacyRoute
   LegalRefundRoute: typeof LegalRefundRoute
   LegalSubscriptionRoute: typeof LegalSubscriptionRoute
@@ -152,12 +165,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LegalPrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ar/$slug': {
+      id: '/ar/$slug'
+      path: '/ar/$slug'
+      fullPath: '/ar/$slug'
+      preLoaderRoute: typeof ArSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
+  ArSlugRoute: ArSlugRoute,
   LegalPrivacyRoute: LegalPrivacyRoute,
   LegalRefundRoute: LegalRefundRoute,
   LegalSubscriptionRoute: LegalSubscriptionRoute,

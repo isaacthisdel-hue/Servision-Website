@@ -42,23 +42,26 @@ function RefundPage() {
         </p>
       </Section>
 
-      <Section heading="3. 12-month commitment">
+      <Section heading="3. Annual Service Agreement">
         <p>
-          The Starter and Growth plans require a 12-month commitment, billed
-          monthly. The Franchise plan is offered on an annual contract with
-          terms tailored to the group.
+          The Starter and Growth plans operate under an Annual Service
+          Agreement, billed monthly over a 12-month term. The Franchise plan
+          is offered on an annual contract with terms tailored to the group.
+          Clients may cancel at any time, subject to the early termination
+          terms below.
         </p>
       </Section>
 
-      <Section heading="4. Early cancellation">
+      <Section heading="4. Early termination fee">
         <p>
-          Clients may cancel before the end of the 12-month term, but early
-          cancellation is subject to a penalty equal to{" "}
-          <strong>50% of the remaining contract value</strong>. This is
-          calculated as 50% of the monthly fee multiplied by the number of
-          months remaining in the current term. This structure allows{" "}
-          {brand.name} to maintain stable service through seasonal fluctuations
-          in the client's business.
+          Clients may cancel their Annual Service Agreement before the end of
+          the annual term. Early cancellation is subject to an early
+          termination fee equal to{" "}
+          <strong>50% of the remaining contract value</strong>, calculated as
+          50% of the monthly fee multiplied by the number of months remaining
+          in the current annual term. This structure allows {brand.name} to
+          maintain stable service through seasonal fluctuations in the
+          client's business.
         </p>
       </Section>
 
