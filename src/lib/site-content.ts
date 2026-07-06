@@ -1,22 +1,21 @@
 // ============================================================
-// EDIT THIS FILE TO UPDATE ALL SITE CONTENT
-// (brand info, dishes, pricing, links)
-// Images live in src/assets/ — replace the files there to swap.
+// SITE CONTENT — copy, pricing tiers and the rollout timeline.
+//
+// Looking for logos, images or dish links?
+// → those live in `src/lib/media.ts` (one file, easy to swap).
 // ============================================================
-import dishBurger from "@/assets/dish-burger.jpg";
-import dishSushi from "@/assets/dish-sushi.jpg";
-import dishPasta from "@/assets/dish-pasta.jpg";
-import logoAsset from "@/assets/servision-logo.png.asset.json";
+import { media, arLinks } from "./media";
 
 export const brand = {
   name: "Servision",
   domain: "servision.ca",
-  logoUrl: logoAsset.url,
+  logoUrl: media.logo,
   contactEmail: "ServisionAr@gmail.com",
   ctaUrl: "/contact",
   enterpriseUrl: "/contact?plan=franchise",
   showcaseUrl: "#showcase",
 };
+
 
 export type Dish = {
   name: string;
