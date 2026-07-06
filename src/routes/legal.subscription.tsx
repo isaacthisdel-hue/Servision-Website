@@ -127,9 +127,10 @@ function SubscriptionPage() {
 
       <Section heading="5. Cancellation">
         <p>
-          Accounts remain active until the cancellation terms in the Refund &
-          Cancellation Policy are met. Early cancellation is subject to a
-          penalty equal to 50% of the remaining contract value.
+          Clients may cancel their subscription at any time by following the
+          steps in the Refund & Cancellation Policy. Cancellation before the
+          end of the annual term is subject to an early termination fee equal
+          to 50% of the remaining contract value.
         </p>
       </Section>
 
