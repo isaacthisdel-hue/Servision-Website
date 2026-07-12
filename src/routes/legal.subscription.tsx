@@ -57,8 +57,8 @@ function SubscriptionPage() {
         <div className="grid gap-4 pt-2">
           <Plan
             name="Starter"
-            price="$49 / month"
-            setup="$39 setup fee"
+            price="$59 / month"
+            setup="$149 setup fee"
             items={[
               "Up to 10 dishes per location",
               "Photorealistic 3D + AR models",
@@ -70,15 +70,16 @@ function SubscriptionPage() {
           <Plan
             name="Growth"
             price="$99 / month"
-            setup="$69 setup fee"
+            setup="$149 setup fee"
             items={[
               "Everything in Starter",
-              "Up to 24 dishes per location",
+              "Up to 20 dishes per location",
               "One full menu refresh per year",
               "Priority dish updates",
               "Annual Service Agreement, billed monthly",
             ]}
           />
+
           <Plan
             name="Franchise"
             price="Custom pricing"
