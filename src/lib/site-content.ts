@@ -98,10 +98,10 @@ export const pricingTiers: PricingTier[] = [
     id: "starter",
     name: "Starter",
     audience: "Small independent restaurants",
-    price: "$49",
+    price: "$59",
     priceUnit: "/month",
     term: "Annual Service Agreement · billed monthly",
-    setupNote: "$39 one-time setup",
+    setupNote: "$149 one-time setup",
     bundleSize: "Up to 10 dishes",
     features: [
       "Up to 10 dishes per location",
@@ -119,11 +119,11 @@ export const pricingTiers: PricingTier[] = [
     price: "$99",
     priceUnit: "/month",
     term: "Annual Service Agreement · billed monthly",
-    setupNote: "$69 one-time setup",
-    bundleSize: "Up to 24 dishes",
+    setupNote: "$149 one-time setup",
+    bundleSize: "Up to 20 dishes",
     features: [
       "Everything in Starter",
-      "Up to 24 dishes per location",
+      "Up to 20 dishes per location",
       "Photorealistic 3D + AR models",
       "Unique QR code for every dish",
       "One full menu refresh per year (swap or update any number of dishes)",
@@ -133,6 +133,7 @@ export const pricingTiers: PricingTier[] = [
     ctaUrl: "/contact?plan=growth",
     highlight: true,
   },
+
   {
     id: "franchise",
     name: "Franchise",
