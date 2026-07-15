@@ -31,6 +31,14 @@ const qr = (data: string) =>
 
 export const dishes: Dish[] = [
   {
+    name: "Breakfast Feast",
+    description: "Scrambled eggs, ham, toasted English muffin — Isaac's Casa, West Island.",
+    image: media.dishes.breakfast,
+    arUrl: arLinks.breakfast,
+    qrUrl: qr(arLinks.breakfast),
+  },
+
+  {
     name: "Signature Burger",
     description: "Aged beef, brioche bun, house sauce.",
     image: media.dishes.burger,
