@@ -36,6 +36,8 @@ export const media = {
   logo: logoImg,
   heroPhone: heroPhoneImg,
   oldMenu: oldMenuImg,
+  arAfter: arAfterImg,
+
   dishes: {
     breakfast: dishBreakfastImg,
     burger: dishBurgerImg,
