@@ -50,7 +50,9 @@ export const media = {
 // here also updates its QR code.
 // ============================================================
 export const arLinks = {
+  breakfast: "https://ar.servision.ca/isaac-s-casa/west-island/breakfast-feast",
   burger: "https://servision.ca/ar/burger",
   sushi: "https://servision.ca/ar/sushi",
   pasta: "https://servision.ca/ar/pasta",
 };
+
