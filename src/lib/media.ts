@@ -35,11 +35,13 @@ export const media = {
   heroPhone: heroPhoneImg,
   oldMenu: oldMenuImg,
   dishes: {
+    breakfast: dishBreakfastImg,
     burger: dishBurgerImg,
     sushi: dishSushiImg,
     pasta: dishPastaImg,
   },
 };
+
 
 // ============================================================
 // LINKS — where each dish's AR experience lives online.
