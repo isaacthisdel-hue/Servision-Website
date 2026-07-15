@@ -423,20 +423,20 @@ function BeforeAfter() {
               Before
             </div>
           </div>
-          <div className="relative rounded-2xl overflow-hidden border border-ink/10 aspect-[4/3] surface-beige flex items-center justify-center text-center p-8">
+          <div className="relative rounded-2xl overflow-hidden border border-ink/10 aspect-[4/3] bg-background">
+            <img
+              src={media.arAfter}
+              alt="Guest scanning a table QR code to view a 3D dish in AR"
+              loading="lazy"
+              width={1200}
+              height={912}
+              className="h-full w-full object-cover"
+            />
             <div className="absolute top-4 left-4 rounded-full bg-accent text-accent-foreground px-3 py-1 text-xs uppercase tracking-widest font-semibold">
               After
             </div>
-            <div className="space-y-3 max-w-xs">
-              <div className="grid h-12 w-12 mx-auto place-items-center rounded-full bg-background border border-ink/10 text-muted-foreground">
-                <ImageIcon className="h-5 w-5" />
-              </div>
-              <p className="text-sm font-medium">Your AR experience</p>
-              <p className="text-xs text-muted-foreground">
-                Drop a screenshot or short clip of your live AR menu here.
-              </p>
-            </div>
           </div>
+
         </div>
       </div>
     </section>
