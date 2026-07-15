@@ -27,6 +27,8 @@ import oldMenuImg from "@/assets/old-menu.jpg";
 import dishBurgerImg from "@/assets/dish-burger.jpg";
 import dishSushiImg from "@/assets/dish-sushi.jpg";
 import dishPastaImg from "@/assets/dish-pasta.jpg";
+import dishBreakfastImg from "@/assets/dish-breakfast.png";
+
 
 export const media = {
   logo: logoImg,
