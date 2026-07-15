@@ -127,19 +127,18 @@ function Nav() {
 */
 function HeroMedia() {
   return (
-    <div className="surface-beige aspect-[4/5] sm:aspect-[5/6] rounded-3xl flex flex-col items-center justify-center text-center p-8 gap-3">
-      <div className="grid h-12 w-12 place-items-center rounded-full bg-background border border-ink/10 text-muted-foreground">
-        <ImageIcon className="h-5 w-5" />
-      </div>
-      <p className="text-sm font-medium text-foreground">Your hero media here</p>
-      <p className="text-xs text-muted-foreground max-w-xs">
-        Drop in a photo, video, or 3D model. Edit{" "}
-        <code className="font-mono text-foreground">HeroMedia</code> in{" "}
-        <code className="font-mono text-foreground">src/routes/index.tsx</code>.
-      </p>
+    <div className="relative aspect-[4/5] sm:aspect-[5/6] rounded-3xl overflow-hidden border border-ink/10 bg-background">
+      <img
+        src={media.heroPhone}
+        alt="Diner scanning a QR code at a restaurant table to see a dish in AR"
+        width={1024}
+        height={1280}
+        className="h-full w-full object-cover"
+      />
     </div>
   );
 }
+
 
 function Hero() {
   return (
@@ -424,20 +423,20 @@ function BeforeAfter() {
               Before
             </div>
           </div>
-          <div className="relative rounded-2xl overflow-hidden border border-ink/10 aspect-[4/3] surface-beige flex items-center justify-center text-center p-8">
+          <div className="relative rounded-2xl overflow-hidden border border-ink/10 aspect-[4/3] bg-background">
+            <img
+              src={media.arAfter}
+              alt="Guest scanning a table QR code to view a 3D dish in AR"
+              loading="lazy"
+              width={1200}
+              height={912}
+              className="h-full w-full object-cover"
+            />
             <div className="absolute top-4 left-4 rounded-full bg-accent text-accent-foreground px-3 py-1 text-xs uppercase tracking-widest font-semibold">
               After
             </div>
-            <div className="space-y-3 max-w-xs">
-              <div className="grid h-12 w-12 mx-auto place-items-center rounded-full bg-background border border-ink/10 text-muted-foreground">
-                <ImageIcon className="h-5 w-5" />
-              </div>
-              <p className="text-sm font-medium">Your AR experience</p>
-              <p className="text-xs text-muted-foreground">
-                Drop a screenshot or short clip of your live AR menu here.
-              </p>
-            </div>
           </div>
+
         </div>
       </div>
     </section>

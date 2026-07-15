@@ -39,14 +39,8 @@ export const dishes: Dish[] = [
   },
 
   {
-    name: "Signature Burger",
-    description: "Aged beef, brioche bun, house sauce.",
-    image: media.dishes.burger,
-    arUrl: arLinks.burger,
-    qrUrl: qr(arLinks.burger),
-  },
-  {
     name: "Omakase Roll",
+
     description: "Daily selection, hand-pressed sushi.",
     image: media.dishes.sushi,
     arUrl: arLinks.sushi,
