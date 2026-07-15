@@ -27,17 +27,21 @@ import oldMenuImg from "@/assets/old-menu.jpg";
 import dishBurgerImg from "@/assets/dish-burger.jpg";
 import dishSushiImg from "@/assets/dish-sushi.jpg";
 import dishPastaImg from "@/assets/dish-pasta.jpg";
+import dishBreakfastImg from "@/assets/dish-breakfast.png";
+
 
 export const media = {
   logo: logoImg,
   heroPhone: heroPhoneImg,
   oldMenu: oldMenuImg,
   dishes: {
+    breakfast: dishBreakfastImg,
     burger: dishBurgerImg,
     sushi: dishSushiImg,
     pasta: dishPastaImg,
   },
 };
+
 
 // ============================================================
 // LINKS — where each dish's AR experience lives online.
@@ -46,7 +50,9 @@ export const media = {
 // here also updates its QR code.
 // ============================================================
 export const arLinks = {
+  breakfast: "https://ar.servision.ca/isaac-s-casa/west-island/breakfast-feast",
   burger: "https://servision.ca/ar/burger",
   sushi: "https://servision.ca/ar/sushi",
   pasta: "https://servision.ca/ar/pasta",
 };
+
