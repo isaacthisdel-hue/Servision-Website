@@ -22,6 +22,8 @@ import logoImg from "@/assets/servision-logo.png";
 // --- Hero / marketing images --------------------------------
 import heroPhoneImg from "@/assets/hero-ar-phone.jpg";
 import oldMenuImg from "@/assets/old-menu.jpg";
+import arAfterImg from "@/assets/ar-after.jpg";
+
 
 // --- Dish photos (used in the "Try it yourself" section) ----
 import dishBurgerImg from "@/assets/dish-burger.jpg";
