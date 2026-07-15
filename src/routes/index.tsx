@@ -127,19 +127,18 @@ function Nav() {
 */
 function HeroMedia() {
   return (
-    <div className="surface-beige aspect-[4/5] sm:aspect-[5/6] rounded-3xl flex flex-col items-center justify-center text-center p-8 gap-3">
-      <div className="grid h-12 w-12 place-items-center rounded-full bg-background border border-ink/10 text-muted-foreground">
-        <ImageIcon className="h-5 w-5" />
-      </div>
-      <p className="text-sm font-medium text-foreground">Your hero media here</p>
-      <p className="text-xs text-muted-foreground max-w-xs">
-        Drop in a photo, video, or 3D model. Edit{" "}
-        <code className="font-mono text-foreground">HeroMedia</code> in{" "}
-        <code className="font-mono text-foreground">src/routes/index.tsx</code>.
-      </p>
+    <div className="relative aspect-[4/5] sm:aspect-[5/6] rounded-3xl overflow-hidden border border-ink/10 bg-background">
+      <img
+        src={media.heroPhone}
+        alt="Diner scanning a QR code at a restaurant table to see a dish in AR"
+        width={1024}
+        height={1280}
+        className="h-full w-full object-cover"
+      />
     </div>
   );
 }
+
 
 function Hero() {
   return (
