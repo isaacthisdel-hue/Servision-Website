@@ -39,9 +39,8 @@ export const dishes: Dish[] = [
   },
 
   {
-    name: "Omakase Roll",
-
-    description: "Daily selection, hand-pressed sushi.",
+    name: "New dish (details coming)",
+    description: "Details for this plate coming soon.",
     image: media.dishes.sushi,
     arUrl: arLinks.sushi,
     qrUrl: qr(arLinks.sushi),
