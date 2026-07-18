@@ -39,8 +39,8 @@ export const dishes: Dish[] = [
   },
 
   {
-    name: "New dish (details coming)",
-    description: "Details for this plate coming soon.",
+    name: "Chicken Noodle",
+    description: "Grilled chicken tenders, farfalle and rigatoni in a creamy pepper sauce — Isaac's Casa, West Island.",
     image: media.dishes.sushi,
     arUrl: arLinks.sushi,
     qrUrl: qr(arLinks.sushi),
