@@ -46,11 +46,11 @@ export const dishes: Dish[] = [
     qrUrl: qr(arLinks.sushi),
   },
   {
-    name: "Truffle Tagliolini",
-    description: "Fresh pasta, black truffle, parmigiano.",
-    image: media.dishes.pasta,
-    arUrl: arLinks.pasta,
-    qrUrl: qr(arLinks.pasta),
+    name: "Chicken Katsu",
+    description: "Panko-crusted chicken cutlet, steamed jasmine rice, bok choy and bean sprout stir-fry — Isaac's Casa, West Island.",
+    image: media.dishes.katsu,
+    arUrl: arLinks.katsu,
+    qrUrl: qr(arLinks.katsu),
   },
 ];
 

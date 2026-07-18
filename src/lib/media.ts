@@ -30,6 +30,7 @@ import dishBurgerImg from "@/assets/dish-burger.jpg";
 import dishSushiImg from "@/assets/dish-sushi.jpg";
 import dishPastaImg from "@/assets/dish-pasta.jpg";
 import dishBreakfastImg from "@/assets/dish-breakfast.png";
+import dishKatsuImg from "@/assets/dish-katsu.png";
 
 
 export const media = {
@@ -43,6 +44,7 @@ export const media = {
     burger: dishBurgerImg,
     sushi: dishSushiImg,
     pasta: dishPastaImg,
+    katsu: dishKatsuImg,
   },
 };
 
@@ -58,5 +60,6 @@ export const arLinks = {
   burger: "https://servision.ca/ar/burger",
   sushi: "https://ar.servision.ca/isaac-s-casa/west-island/chicken-noodle",
   pasta: "https://servision.ca/ar/pasta",
+  katsu: "https://ar.servision.ca/isaac-s-casa/west-island/chicken-katsu",
 };
 
