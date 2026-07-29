@@ -206,5 +206,5 @@ export const founder = {
   name: "Isaac Thisdel",
   role: "Founder, Servision",
   location: "West Island, Montréal",
-  bio: "I scan every dish myself, build every model, and I'm usually the one who drops off your QR codes in person. It's one person building this for restaurants in my own neighborhood, not a faceless platform.",
+  bio: "A photo undersells a dish. AI and AR don't. Every restaurant menu looks like this in five years. I'm not waiting five years to build it.",
 };
