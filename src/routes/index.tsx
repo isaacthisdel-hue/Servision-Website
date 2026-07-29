@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   ScanLine,
   Boxes,
@@ -14,9 +15,20 @@ import {
   Eye,
   Hand,
   Link2,
+  ChevronDown,
+  MapPin,
+  Activity,
 } from "lucide-react";
 import { media } from "@/lib/media";
-import { brand, dishes, rolloutSteps, pricingTiers } from "@/lib/site-content";
+import {
+  brand,
+  dishes,
+  rolloutSteps,
+  pricingTiers,
+  faqs,
+  dashboardPreview,
+  founder,
+} from "@/lib/site-content";
 import { SiteFooter as Footer } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/")({
@@ -89,6 +101,7 @@ function Nav() {
     { href: "#showcase", label: "Showcase" },
     { href: "#why", label: "Why it works" },
     { href: "#pricing", label: "Pricing" },
+    { href: "#faq", label: "FAQ" },
   ];
   return (
     <header className="fixed top-0 inset-x-0 z-50">
@@ -127,14 +140,47 @@ function Nav() {
 */
 function HeroMedia() {
   return (
-    <div className="relative aspect-[4/5] sm:aspect-[5/6] rounded-3xl overflow-hidden border border-ink/10 bg-background">
-      <img
-        src={media.heroPhone}
-        alt="Diner scanning a QR code at a restaurant table to see a dish in AR"
-        width={1024}
-        height={1280}
-        className="h-full w-full object-cover"
-      />
+    <div className="relative">
+      <div className="relative aspect-[4/5] sm:aspect-[5/6] rounded-3xl overflow-hidden border border-ink/10 bg-background">
+        <img
+          src={media.heroPhone}
+          alt="Diner scanning a QR code at a restaurant table to see a dish in AR"
+          width={1024}
+          height={1280}
+          className="h-full w-full object-cover"
+        />
+      </div>
+
+      {/* Floating detail cards — fill the space around the hero image on
+          wide screens with real information instead of leaving it blank. */}
+      <div className="hidden 2xl:flex absolute -left-16 top-10 w-48 items-start gap-3 rounded-2xl surface p-4 shadow-lg animate-fade-up">
+        <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-beige text-accent">
+          <QrCode className="h-4 w-4" />
+        </div>
+        <div>
+          <p className="text-xs font-semibold leading-tight">One code, forever</p>
+          <p className="text-[11px] text-muted-foreground mt-1 leading-snug">
+            Swap dishes anytime — the printed QR never changes.
+          </p>
+        </div>
+      </div>
+
+      <div className="hidden 2xl:flex absolute -right-14 bottom-24 w-52 items-start gap-3 rounded-2xl surface p-4 shadow-lg animate-fade-up">
+        <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-beige text-accent">
+          <TrendingUp className="h-4 w-4" />
+        </div>
+        <div>
+          <p className="text-xs font-semibold leading-tight">See the hesitation gap</p>
+          <p className="text-[11px] text-muted-foreground mt-1 leading-snug">
+            Every scan is tracked, so you know which dishes guests open but don't order.
+          </p>
+        </div>
+      </div>
+
+      <div className="hidden 2xl:flex absolute -left-10 bottom-6 items-center gap-2 rounded-full bg-foreground text-background px-4 py-2 shadow-lg animate-fade-up">
+        <Sparkles className="h-3.5 w-3.5 text-accent" />
+        <span className="text-[11px] font-semibold whitespace-nowrap">Live in under a week</span>
+      </div>
     </div>
   );
 }
@@ -142,8 +188,8 @@ function HeroMedia() {
 
 function Hero() {
   return (
-    <section className="relative pt-36 pb-20 sm:pt-44 sm:pb-28">
-      <div className="mx-auto max-w-6xl px-4 grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+    <section className="relative overflow-x-clip pt-36 pb-20 sm:pt-44 sm:pb-28">
+      <div className="mx-auto max-w-7xl px-4 grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
         <div className="lg:col-span-7 space-y-7 animate-fade-up">
           <SectionLabel>3D & AR for restaurant menus</SectionLabel>
           <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.02] font-normal">
@@ -196,7 +242,7 @@ function HowItWorks() {
   ];
   return (
     <section id="how" className="py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-7xl px-4">
         <div className="text-center max-w-2xl mx-auto space-y-4 mb-16">
           <SectionLabel>How it works</SectionLabel>
           <h2 className="font-serif text-4xl sm:text-5xl tracking-tight">
@@ -225,7 +271,7 @@ function HowItWorks() {
 function Showcase() {
   return (
     <section id="showcase" className="py-24 sm:py-32 bg-beige/40">
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-7xl px-4">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
           <div className="space-y-4">
             <SectionLabel>Try it yourself</SectionLabel>
@@ -309,7 +355,7 @@ function DeliveryMethods() {
   ];
   return (
     <section className="py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-7xl px-4">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
           <div className="space-y-4 max-w-xl">
             <SectionLabel>Works everywhere</SectionLabel>
@@ -334,6 +380,17 @@ function DeliveryMethods() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-5 rounded-2xl bg-foreground text-background p-6 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-background/15 text-accent">
+            <QrCode className="h-5 w-5" />
+          </div>
+          <p className="text-sm sm:text-base leading-relaxed">
+            <span className="font-semibold">Your table QR code never changes.</span>{" "}
+            Add a dish, remove one, or rewrite a description — the same printed
+            code on the table always shows what's live right now. Nothing to reprint.
+          </p>
         </div>
       </div>
     </section>
@@ -367,7 +424,7 @@ function Why() {
   ];
   return (
     <section id="why" className="py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-7xl px-4">
         <div className="max-w-2xl space-y-4 mb-14">
           <SectionLabel>Why it works</SectionLabel>
           <h2 className="font-serif text-4xl sm:text-5xl tracking-tight">
@@ -402,7 +459,7 @@ function Why() {
 function BeforeAfter() {
   return (
     <section className="py-24 sm:py-32 bg-beige/40">
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-7xl px-4">
         <div className="text-center max-w-2xl mx-auto space-y-4 mb-14">
           <SectionLabel>The difference</SectionLabel>
           <h2 className="font-serif text-4xl sm:text-5xl tracking-tight">
@@ -448,7 +505,7 @@ function BeforeAfter() {
 function Rollout() {
   return (
     <section className="py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-7xl px-4">
         <div className="text-center max-w-2xl mx-auto space-y-4 mb-14">
           <SectionLabel>What to expect</SectionLabel>
           <h2 className="font-serif text-4xl sm:text-5xl tracking-tight">
@@ -476,12 +533,94 @@ function Rollout() {
 }
 
 
+/* ---------------------------- Analytics preview -------------------------- */
+
+function AnalyticsPreview() {
+  const maxBar = Math.max(...dashboardPreview.bars.map((b) => b.value));
+  return (
+    <section className="py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-4 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="space-y-5 max-w-xl">
+          <SectionLabel>Included with every plan</SectionLabel>
+          <h2 className="font-serif text-4xl sm:text-5xl tracking-tight">
+            Know which dishes guests love before your staff ever tells you.
+          </h2>
+          <p className="text-base text-muted-foreground leading-relaxed">
+            Every scan, AR launch, and view is tracked automatically. You get
+            a live dashboard per dish and per menu — including the "hesitation
+            gap": dishes guests open often but order less. That's a menu fix
+            waiting to happen.
+          </p>
+          <ul className="space-y-3 pt-2">
+            {[
+              "Scans and AR launches, per dish and per table",
+              "Average view time, so you know what actually holds attention",
+              "A ranked list of dishes guests view but don't order",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3 text-sm">
+                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-beige text-accent">
+                  <Check className="h-3 w-3" />
+                </span>
+                <span className="text-foreground/85">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="surface rounded-3xl p-6 sm:p-8">
+          <div className="flex items-start justify-between mb-6">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                Example dashboard
+              </p>
+              <h3 className="font-semibold text-lg mt-1">{dashboardPreview.dishName}</h3>
+            </div>
+            <div className="grid h-10 w-10 place-items-center rounded-xl bg-beige text-accent">
+              <Activity className="h-5 w-5" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="rounded-xl bg-beige/60 p-4">
+              <p className="text-2xl font-serif tracking-tight">{dashboardPreview.scans}</p>
+              <p className="text-xs text-muted-foreground mt-1">Scans this week</p>
+            </div>
+            <div className="rounded-xl bg-beige/60 p-4">
+              <p className="text-2xl font-serif tracking-tight">{dashboardPreview.avgViewTime}</p>
+              <p className="text-xs text-muted-foreground mt-1">Avg. view time</p>
+            </div>
+          </div>
+
+          <div className="flex items-end gap-2 h-28 mb-2">
+            {dashboardPreview.bars.map((b) => (
+              <div key={b.label} className="flex-1 flex flex-col items-center gap-2">
+                <div
+                  className="w-full rounded-md bg-accent/70"
+                  style={{ height: `${(b.value / maxBar) * 100}%` }}
+                />
+                <span className="text-[10px] text-muted-foreground">{b.label}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-4 rounded-xl border border-ink/10 bg-background px-4 py-3 flex items-start gap-3">
+            <TrendingUp className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              {dashboardPreview.hesitationNote}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* -------------------------------- Pricing ------------------------------- */
 
 function Pricing() {
   return (
     <section id="pricing" className="py-24 sm:py-32 bg-beige/40">
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-7xl px-4">
         <div className="text-center max-w-2xl mx-auto space-y-4 mb-14">
           <SectionLabel>Pricing</SectionLabel>
           <h2 className="font-serif text-4xl sm:text-5xl tracking-tight">
@@ -579,6 +718,109 @@ function Pricing() {
   );
 }
 
+/* ----------------------------------- FAQ ---------------------------------- */
+
+function FAQItem({ item, isOpen, onToggle }: { item: { q: string; a: string }; isOpen: boolean; onToggle: () => void }) {
+  return (
+    <div className="surface rounded-2xl overflow-hidden">
+      <button
+        type="button"
+        onClick={onToggle}
+        className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left"
+        aria-expanded={isOpen}
+      >
+        <span className="font-semibold text-sm sm:text-base">{item.q}</span>
+        <ChevronDown
+          className={`h-4 w-4 shrink-0 text-accent transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      <div
+        className={`grid transition-all duration-300 ease-out ${
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p className="px-5 sm:px-6 pb-5 sm:pb-6 text-sm text-muted-foreground leading-relaxed">
+            {item.a}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const mid = Math.ceil(faqs.length / 2);
+  const columns = [faqs.slice(0, mid), faqs.slice(mid)];
+
+  return (
+    <section id="faq" className="py-24 sm:py-32 bg-beige/40">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="text-center max-w-2xl mx-auto space-y-4 mb-14">
+          <SectionLabel>Common questions</SectionLabel>
+          <h2 className="font-serif text-4xl sm:text-5xl tracking-tight">
+            Answers before you have to ask.
+          </h2>
+        </div>
+        <div className="grid lg:grid-cols-2 gap-4">
+          {columns.map((col, colIdx) => (
+            <div key={colIdx} className="space-y-4">
+              {col.map((item, i) => {
+                const globalIndex = colIdx * mid + i;
+                return (
+                  <FAQItem
+                    key={item.q}
+                    item={item}
+                    isOpen={openIndex === globalIndex}
+                    onToggle={() =>
+                      setOpenIndex(openIndex === globalIndex ? null : globalIndex)
+                    }
+                  />
+                );
+              })}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------------- Founder -------------------------------- */
+
+function FounderNote() {
+  const initials = founder.name
+    .split(" ")
+    .map((n) => n[0])
+    .join("");
+  return (
+    <section className="py-20 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="surface rounded-3xl p-8 sm:p-10 grid sm:grid-cols-[auto_1fr] gap-6 sm:gap-8 items-center">
+          <div className="flex sm:flex-col items-center sm:items-start gap-4 sm:gap-3">
+            <div className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-foreground text-background font-serif text-xl">
+              {initials}
+            </div>
+            <div className="sm:mt-1">
+              <p className="font-semibold leading-tight">{founder.name}</p>
+              <p className="text-sm text-muted-foreground">{founder.role}</p>
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground mt-1">
+                <MapPin className="h-3 w-3" /> {founder.location}
+              </div>
+            </div>
+          </div>
+          <p className="text-base sm:text-lg text-foreground/85 leading-relaxed font-serif italic">
+            "{founder.bio}"
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* -------------------------------- Final CTA ----------------------------- */
 
 function FinalCTA() {
@@ -617,9 +859,13 @@ function HomePage() {
         <HowItWorks />
         <Showcase />
         <Why />
+        <DeliveryMethods />
         <BeforeAfter />
         <Rollout />
+        <AnalyticsPreview />
         <Pricing />
+        <FAQSection />
+        <FounderNote />
         <FinalCTA />
       </main>
       <Footer />

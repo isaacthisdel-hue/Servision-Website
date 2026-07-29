@@ -151,3 +151,60 @@ export const pricingTiers: PricingTier[] = [
     ctaUrl: "/contact?plan=franchise",
   },
 ];
+
+// Common objections, answered directly so a prospect can self-serve
+// before ever getting on a call.
+export type Faq = { q: string; a: string };
+
+export const faqs: Faq[] = [
+  {
+    q: "Do we need to reprint anything when the menu changes?",
+    a: "No. Each table's QR code points at a live page, not a fixed file. Add a dish, remove one, or update a description, and the same printed code just shows the new lineup — nothing to reprint, ever.",
+  },
+  {
+    q: "Do my guests need to download an app?",
+    a: "No app, no account, no install. Guests open their phone camera, scan, and the 3D model launches straight in their browser using built-in AR support on iPhone and Android.",
+  },
+  {
+    q: "Does this replace our printed menu?",
+    a: "It sits alongside it. Most restaurants keep their printed or digital menu as-is and add a QR code next to the dishes they want guests to see in 3D first — usually the higher-margin or hardest-to-describe items.",
+  },
+  {
+    q: "What does your team need from us to get started?",
+    a: "Just your dish list and 15 minutes per dish for an on-site scan. We bring the equipment, build the models, host everything, and hand you print-ready QR codes.",
+  },
+  {
+    q: "What happens if we need to cancel?",
+    a: "Plans run on a 12-month term billed monthly. If you need out early, an early termination fee applies based on time remaining on the term — full details are in the Subscription Agreement before you sign anything.",
+  },
+  {
+    q: "We have more than one location — how does pricing work?",
+    a: "Franchise and multi-location groups get a custom quote based on dish count per location and rollout timeline. Reach out and we'll put a real number in front of you, not a generic tier.",
+  },
+];
+
+// Illustrative preview of the per-dish analytics dashboard every plan
+// includes. Numbers here are example UI content, not a specific client's
+// results — real dashboards are seeded from each restaurant's own scans.
+export const dashboardPreview = {
+  dishName: "Chicken Katsu",
+  scans: 214,
+  avgViewTime: "38s",
+  hesitationNote: "Opened often, ordered less — a candidate for a menu highlight.",
+  bars: [
+    { label: "Mon", value: 22 },
+    { label: "Tue", value: 30 },
+    { label: "Wed", value: 18 },
+    { label: "Thu", value: 41 },
+    { label: "Fri", value: 63 },
+    { label: "Sat", value: 74 },
+    { label: "Sun", value: 55 },
+  ],
+};
+
+export const founder = {
+  name: "Isaac Thisdel",
+  role: "Founder, Servision",
+  location: "West Island, Montréal",
+  bio: "I scan every dish myself, build every model, and I'm usually the one who drops off your QR codes in person. It's one person building this for restaurants in my own neighborhood, not a faceless platform.",
+};

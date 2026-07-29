@@ -79,6 +79,15 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    /* On wide viewports the centered content column leaves open space at
+       the sides — fill it with a very soft, fixed depth gradient instead
+       of flat color, so large screens don't read as empty. */
+    background-image:
+      radial-gradient(ellipse 60% 50% at 8% 0%, color-mix(in oklab, var(--color-accent) 7%, transparent), transparent),
+      radial-gradient(ellipse 55% 45% at 100% 30%, color-mix(in oklab, var(--color-beige-deep) 35%, transparent), transparent),
+      radial-gradient(ellipse 50% 40% at 0% 85%, color-mix(in oklab, var(--color-beige-deep) 25%, transparent), transparent);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
   }
 }
 
