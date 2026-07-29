@@ -14,13 +14,13 @@ export const Route = createFileRoute("/contact")({
   }),
   head: () => ({
     meta: [
-      { title: "Get a Demo — Servision" },
+      { title: "Get a Demo | Servision" },
       {
         name: "description",
         content:
           "Tell us about your restaurant and we'll come scan your dishes. First QR codes live within a week.",
       },
-      { property: "og:title", content: "Get a Demo — Servision" },
+      { property: "og:title", content: "Get a Demo | Servision" },
       {
         property: "og:description",
         content:
@@ -140,7 +140,7 @@ function ContactPage() {
         preferred_contact: data.preferred_contact || "",
         hear_about: data.hear_about || "",
         message: data.message || "",
-        _subject: `New Servision lead — ${data.restaurant_name} (${planTier?.name ?? selectedPlan})`,
+        _subject: `New Servision lead: ${data.restaurant_name} (${planTier?.name ?? selectedPlan})`,
       };
 
       const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -169,7 +169,7 @@ function ContactPage() {
           <div className="mx-auto mb-8 grid h-16 w-16 place-items-center rounded-full bg-accent/15 text-accent">
             <CheckCircle2 className="h-8 w-8" />
           </div>
-          <h1 className="font-serif text-5xl tracking-tight">Got it — thank you.</h1>
+          <h1 className="font-serif text-5xl tracking-tight">Got it. Thank you.</h1>
           <p className="mt-5 text-base text-muted-foreground">
             Your request landed safely. We'll reach out within one business day
             to plan a scan visit and walk you through your first dishes.
@@ -207,7 +207,7 @@ function ContactPage() {
             Tell us about your restaurant.
           </h1>
           <p className="text-base text-muted-foreground max-w-xl">
-            A few details so we can prepare a real proposal — not a generic
+            A few details so we can prepare a real proposal, not a generic
             quote. We reply within one business day.
           </p>
         </div>
@@ -380,7 +380,7 @@ function ContactPage() {
           <Field
             label="Anything we should know?"
             htmlFor="message"
-            hint="Timing, specific dishes, questions — anything that helps us reply well."
+            hint="Timing, specific dishes, questions, anything that helps us reply well."
             error={errors.message}
           >
             <textarea

@@ -32,7 +32,7 @@ const qr = (data: string) =>
 export const dishes: Dish[] = [
   {
     name: "Breakfast Feast",
-    description: "Scrambled eggs, ham, toasted English muffin — Isaac's Casa, West Island.",
+    description: "Scrambled eggs, ham, toasted English muffin. From Isaac's Casa, West Island.",
     image: media.dishes.breakfast,
     arUrl: arLinks.breakfast,
     qrUrl: qr(arLinks.breakfast),
@@ -40,14 +40,14 @@ export const dishes: Dish[] = [
 
   {
     name: "Chicken Noodle",
-    description: "Grilled chicken tenders, farfalle and rigatoni in a creamy pepper sauce — Isaac's Casa, West Island.",
+    description: "Grilled chicken tenders, farfalle and rigatoni in a creamy pepper sauce. From Isaac's Casa, West Island.",
     image: media.dishes.sushi,
     arUrl: arLinks.sushi,
     qrUrl: qr(arLinks.sushi),
   },
   {
     name: "Chicken Katsu",
-    description: "Panko-crusted chicken cutlet, steamed jasmine rice, bok choy and bean sprout stir-fry — Isaac's Casa, West Island.",
+    description: "Panko-crusted chicken cutlet, steamed jasmine rice, bok choy and bean sprout stir-fry. From Isaac's Casa, West Island.",
     image: media.dishes.katsu,
     arUrl: arLinks.katsu,
     qrUrl: qr(arLinks.katsu),
@@ -64,7 +64,7 @@ export const rolloutSteps = [
   {
     day: "Day 2–3",
     title: "On-site scan",
-    desc: "We come to your kitchen and capture every dish — about 15 minutes each.",
+    desc: "We come to your kitchen and capture every dish, about 15 minutes each.",
   },
   {
     day: "Day 4–6",
@@ -159,7 +159,7 @@ export type Faq = { q: string; a: string };
 export const faqs: Faq[] = [
   {
     q: "Do we need to reprint anything when the menu changes?",
-    a: "No. Each table's QR code points at a live page, not a fixed file. Add a dish, remove one, or update a description, and the same printed code just shows the new lineup — nothing to reprint, ever.",
+    a: "No. Each table's QR code points at a live page, not a fixed file. Add a dish, remove one, or update a description, and the same printed code just shows the new lineup. Nothing to reprint, ever.",
   },
   {
     q: "Do my guests need to download an app?",
@@ -167,7 +167,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Does this replace our printed menu?",
-    a: "It sits alongside it. Most restaurants keep their printed or digital menu as-is and add a QR code next to the dishes they want guests to see in 3D first — usually the higher-margin or hardest-to-describe items.",
+    a: "It sits alongside it. Most restaurants keep their printed or digital menu as-is and add a QR code next to the dishes they want guests to see in 3D first, usually the higher-margin or hardest-to-describe items.",
   },
   {
     q: "What does your team need from us to get started?",
@@ -175,10 +175,10 @@ export const faqs: Faq[] = [
   },
   {
     q: "What happens if we need to cancel?",
-    a: "Plans run on a 12-month term billed monthly. If you need out early, an early termination fee applies based on time remaining on the term — full details are in the Subscription Agreement before you sign anything.",
+    a: "Plans run on a 12-month term billed monthly. If you need out early, an early termination fee applies based on time remaining on the term. Full details are in the Subscription Agreement before you sign anything.",
   },
   {
-    q: "We have more than one location — how does pricing work?",
+    q: "We have more than one location. How does pricing work?",
     a: "Franchise and multi-location groups get a custom quote based on dish count per location and rollout timeline. Reach out and we'll put a real number in front of you, not a generic tier.",
   },
 ];
@@ -190,7 +190,7 @@ export const dashboardPreview = {
   dishName: "Chicken Katsu",
   scans: 214,
   avgViewTime: "38s",
-  hesitationNote: "Opened often, ordered less — a candidate for a menu highlight.",
+  hesitationNote: "Opened often, ordered less. A candidate for a menu highlight.",
   bars: [
     { label: "Mon", value: 22 },
     { label: "Tue", value: 30 },

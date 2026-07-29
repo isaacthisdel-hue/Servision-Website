@@ -5,7 +5,7 @@ import { brand } from "@/lib/site-content";
 export const Route = createFileRoute("/legal/refund")({
   head: () => ({
     meta: [
-      { title: "Refund & Cancellation Policy — Servision" },
+      { title: "Refund & Cancellation Policy | Servision" },
       {
         name: "description",
         content:

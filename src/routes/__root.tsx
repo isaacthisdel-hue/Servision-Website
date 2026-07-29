@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Servision — See dishes in 3D before you order" },
+      { title: "Servision | See dishes in 3D before you order" },
       {
         name: "description",
         content:
           "Servision turns restaurant menus into interactive 3D & AR experiences. One QR code per dish. No app required.",
       },
       { name: "author", content: "Servision" },
-      { property: "og:title", content: "Servision — 3D & AR menus for restaurants" },
+      { property: "og:title", content: "Servision | 3D & AR menus for restaurants" },
       {
         property: "og:description",
         content:

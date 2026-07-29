@@ -34,7 +34,7 @@ import { SiteFooter as Footer } from "@/components/SiteFooter";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Servision — Let guests see your dishes in 3D before they order" },
+      { title: "Servision | Let guests see your dishes in 3D before they order" },
       {
         name: "description",
         content:
@@ -160,7 +160,7 @@ function HeroMedia() {
         <div>
           <p className="text-xs font-semibold leading-tight">One code, forever</p>
           <p className="text-[11px] text-muted-foreground mt-1 leading-snug">
-            Swap dishes anytime — the printed QR never changes.
+            Swap dishes anytime. The printed QR never changes.
           </p>
         </div>
       </div>
@@ -198,7 +198,7 @@ function Hero() {
             before they order it.
           </h1>
           <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-            Most customers hesitate on a menu — unsure of portion, plating, or
+            Most customers hesitate on a menu, unsure of portion, plating, or
             what something actually looks like. Servision removes that
             hesitation with one scan: a true-to-life 3D model of every dish,
             viewable in AR right at the table.
@@ -280,7 +280,7 @@ function Showcase() {
             </h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-sm">
-            Point your phone camera at any QR code below — the dish opens
+            Point your phone camera at any QR code below. The dish opens
             straight in 3D / AR. No download, no sign-up.
           </p>
         </div>
@@ -345,7 +345,7 @@ function DeliveryMethods() {
     {
       icon: QrCode,
       title: "QR codes",
-      desc: "Place on tables, physical menus, window displays, or check presenters. Guests scan with any phone camera — no app needed.",
+      desc: "Place on tables, physical menus, window displays, or check presenters. Guests scan with any phone camera, no app needed.",
     },
     {
       icon: Link2,
@@ -388,7 +388,7 @@ function DeliveryMethods() {
           </div>
           <p className="text-sm sm:text-base leading-relaxed">
             <span className="font-semibold">Your table QR code never changes.</span>{" "}
-            Add a dish, remove one, or rewrite a description — the same printed
+            Add a dish, remove one, or rewrite a description, and the same printed
             code on the table always shows what's live right now. Nothing to reprint.
           </p>
         </div>
@@ -404,7 +404,7 @@ function Why() {
     {
       icon: Eye,
       title: "Removes ordering hesitation",
-      desc: "Guests stop second-guessing portion, plating and presentation — they order with confidence.",
+      desc: "Guests stop second-guessing portion, plating and presentation, and they order with confidence.",
     },
     {
       icon: TrendingUp,
@@ -414,7 +414,7 @@ function Why() {
     {
       icon: Share2,
       title: "Turns guests into marketers",
-      desc: "AR pulls phones out of pockets — and what follows is photos, stories, and free organic reach.",
+      desc: "AR pulls phones out of pockets, and what follows is photos, stories, and free organic reach.",
     },
     {
       icon: Hand,
@@ -432,7 +432,7 @@ function Why() {
           </h2>
           <p className="text-base text-muted-foreground max-w-xl">
             Independent restaurants live and die on first impressions. Servision
-            gives every dish a fair shot in front of the guest — before the
+            gives every dish a fair shot in front of the guest, before the
             order is placed.
           </p>
         </div>
@@ -547,7 +547,7 @@ function AnalyticsPreview() {
           </h2>
           <p className="text-base text-muted-foreground leading-relaxed">
             Every scan, AR launch, and view is tracked automatically. You get
-            a live dashboard per dish and per menu — including the "hesitation
+            a live dashboard per dish and per menu, including the "hesitation
             gap": dishes guests open often but order less. That's a menu fix
             waiting to happen.
           </p>
@@ -627,9 +627,9 @@ function Pricing() {
             Plans that scale with your kitchen.
           </h2>
           <p className="text-base text-muted-foreground">
-            Annual Service Agreement, billed monthly. You can cancel anytime —
-            an early termination fee applies based on the time left on your
-            annual term.
+            Annual Service Agreement, billed monthly. You can cancel anytime,
+            though an early termination fee applies based on the time left on
+            your annual term.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-5 items-stretch">

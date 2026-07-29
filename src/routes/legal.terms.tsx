@@ -5,7 +5,7 @@ import { brand } from "@/lib/site-content";
 export const Route = createFileRoute("/legal/terms")({
   head: () => ({
     meta: [
-      { title: "Terms of Service — Servision" },
+      { title: "Terms of Service | Servision" },
       {
         name: "description",
         content:
