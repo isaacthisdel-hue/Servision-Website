@@ -363,7 +363,6 @@ function ModelExplorer() {
             ref={viewerRef}
             src={current.glb}
             ios-src={current.usdz}
-            poster={current.poster}
             alt={`Interactive 3D model of ${current.name}`}
             camera-controls
             auto-rotate
@@ -377,7 +376,7 @@ function ModelExplorer() {
             ar-modes="webxr scene-viewer quick-look"
             shadow-intensity="1"
             exposure="1.05"
-            style={{ width: "100%", height: "100%", "--poster-color": "transparent" } as React.CSSProperties}
+            style={{ width: "100%", height: "100%" }}
           />
 
           {!interacted && (

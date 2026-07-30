@@ -75,19 +75,16 @@ export const modelShowcase = [
     name: "Chicken Katsu",
     glb: katsuModelGlb,
     usdz: katsuModelUsdz,
-    poster: dishKatsuImg,
   },
   {
     id: "breakfast",
     name: "Breakfast Feast",
     glb: breakfastModelGlb,
-    poster: dishBreakfastImg,
   },
   {
     id: "burger",
     name: "Burger",
     glb: burgerModelGlb,
-    poster: dishBurgerImg,
   },
 ];
 
