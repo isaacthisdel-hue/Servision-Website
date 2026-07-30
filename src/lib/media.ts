@@ -39,6 +39,8 @@ import dishKatsuImg from "@/assets/dish-katsu.png";
 // extension, same hashed-URL bundling as every other asset here.
 import katsuModelGlb from "@/assets/models/katsu.glb?url";
 import katsuModelUsdz from "@/assets/models/katsu.usdz?url";
+import breakfastModelGlb from "@/assets/models/breakfast.glb?url";
+import burgerModelGlb from "@/assets/models/burger.glb?url";
 
 export const media = {
   logo: logoImg,
@@ -59,6 +61,35 @@ export const media = {
     },
   },
 };
+
+// ============================================================
+// MODEL CAROUSEL — the dishes shown in the interactive 3D
+// viewer (ModelExplorer, in the homepage Showcase section).
+// Only dishes with a real GLB export belong here. `usdz` is
+// optional — without it, iOS Quick Look AR just won't be
+// offered for that dish, the drag/zoom viewer works regardless.
+// ============================================================
+export const modelShowcase = [
+  {
+    id: "katsu",
+    name: "Chicken Katsu",
+    glb: katsuModelGlb,
+    usdz: katsuModelUsdz,
+    poster: dishKatsuImg,
+  },
+  {
+    id: "breakfast",
+    name: "Breakfast Feast",
+    glb: breakfastModelGlb,
+    poster: dishBreakfastImg,
+  },
+  {
+    id: "burger",
+    name: "Burger",
+    glb: burgerModelGlb,
+    poster: dishBurgerImg,
+  },
+];
 
 // ============================================================
 // LINKS — where each dish's AR experience lives online.
