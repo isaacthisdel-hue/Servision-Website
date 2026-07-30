@@ -31,6 +31,15 @@ import dishPastaImg from "@/assets/dish-pasta.jpg";
 import dishBreakfastImg from "@/assets/dish-breakfast.png";
 import dishKatsuImg from "@/assets/dish-katsu.png";
 
+// --- Interactive 3D model (the "explore in 3D" viewer) -------
+// Converted from the raw USDZ scan. `.glb` powers the in-browser
+// drag-to-rotate viewer everywhere; `.usdz` is only used as the
+// AR handoff file for Safari on iOS (Quick Look). The ?url suffix
+// forces Vite to treat these as plain asset files regardless of
+// extension, same hashed-URL bundling as every other asset here.
+import katsuModelGlb from "@/assets/models/katsu.glb?url";
+import katsuModelUsdz from "@/assets/models/katsu.usdz?url";
+
 export const media = {
   logo: logoImg,
   heroPhone: heroPhoneImg,
@@ -42,6 +51,12 @@ export const media = {
     sushi: dishSushiImg,
     pasta: dishPastaImg,
     katsu: dishKatsuImg,
+  },
+  models: {
+    katsu: {
+      glb: katsuModelGlb,
+      usdz: katsuModelUsdz,
+    },
   },
 };
 

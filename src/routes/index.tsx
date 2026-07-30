@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   ScanLine,
   Boxes,
@@ -40,6 +40,12 @@ export const Route = createFileRoute("/")({
         name: "description",
         content:
           "Servision turns your menu into an interactive 3D & AR experience. One QR code per dish. No app. Built for independent restaurants.",
+      },
+    ],
+    scripts: [
+      {
+        type: "module",
+        src: "https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js",
       },
     ],
   }),
@@ -301,6 +307,76 @@ function HowItWorks() {
   );
 }
 
+/* --------------------------- Interactive 3D model ------------------------- */
+
+function ModelExplorer() {
+  const viewerRef = useRef<HTMLElement>(null);
+  const [interacted, setInteracted] = useState(false);
+
+  useEffect(() => {
+    const el = viewerRef.current;
+    if (!el) return;
+    const handleCameraChange = (e: Event) => {
+      const detail = (e as CustomEvent<{ source?: string }>).detail;
+      if (detail?.source === "user-interaction") {
+        setInteracted(true);
+      }
+    };
+    el.addEventListener("camera-change", handleCameraChange);
+    return () => el.removeEventListener("camera-change", handleCameraChange);
+  }, []);
+
+  return (
+    <div className="mb-6 surface rounded-3xl overflow-hidden grid lg:grid-cols-[1.1fr_1fr]">
+      <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[420px] bg-beige/60">
+        <model-viewer
+          ref={viewerRef}
+          src={media.models.katsu.glb}
+          ios-src={media.models.katsu.usdz}
+          poster={media.dishes.katsu}
+          alt="Interactive 3D model of a chicken katsu dish"
+          camera-controls
+          auto-rotate
+          auto-rotate-delay="1000"
+          rotation-per-second="18deg"
+          ar
+          ar-modes="webxr scene-viewer quick-look"
+          shadow-intensity="1"
+          exposure="1.05"
+          style={{ width: "100%", height: "100%", "--poster-color": "transparent" } as React.CSSProperties}
+        />
+
+        {!interacted && (
+          <div className="pointer-events-none absolute inset-x-0 bottom-5 flex justify-center">
+            <div className="flex items-center gap-2 rounded-full bg-foreground/90 text-background px-4 py-2 text-xs font-semibold shadow-lg">
+              <span className="inline-flex animate-drag-hint">
+                <Hand className="h-3.5 w-3.5" />
+              </span>
+              Drag to rotate
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="p-8 sm:p-10 flex flex-col justify-center gap-4">
+        <SectionLabel>Live 3D model</SectionLabel>
+        <h3 className="font-serif text-2xl sm:text-3xl tracking-tight">
+          This is a real scan, not a render.
+        </h3>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Drag to rotate, scroll or pinch to zoom. This is the exact model a
+          guest sees after scanning the QR on their table, right down to the
+          texture on the plate.
+        </p>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          On a phone, tap the AR icon in the corner to place this dish on your
+          own table in augmented reality.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 /* -------------------------------- Showcase ------------------------------- */
 
 function Showcase() {
@@ -319,6 +395,8 @@ function Showcase() {
             straight in 3D / AR. No download, no sign-up.
           </p>
         </div>
+
+        <ModelExplorer />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {dishes.map((d) => (
