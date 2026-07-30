@@ -339,6 +339,10 @@ function ModelExplorer() {
           auto-rotate
           auto-rotate-delay="1000"
           rotation-per-second="18deg"
+          camera-orbit="0deg 45deg auto"
+          min-camera-orbit="auto 20deg auto"
+          max-camera-orbit="auto 80deg auto"
+          field-of-view="30deg"
           ar
           ar-modes="webxr scene-viewer quick-look"
           shadow-intensity="1"
