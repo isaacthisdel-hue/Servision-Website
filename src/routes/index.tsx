@@ -17,12 +17,10 @@ import {
   Hand,
   Link2,
   ChevronDown,
-  ChevronLeft,
-  ChevronRight,
   MapPin,
   Activity,
 } from "lucide-react";
-import { media, modelShowcase } from "@/lib/media";
+import { media } from "@/lib/media";
 import {
   brand,
   dishes,
@@ -314,9 +312,6 @@ function HowItWorks() {
 function ModelExplorer() {
   const viewerRef = useRef<HTMLElement>(null);
   const [interacted, setInteracted] = useState(false);
-  const [index, setIndex] = useState(0);
-  const count = modelShowcase.length;
-  const current = modelShowcase[index];
 
   useEffect(() => {
     const el = viewerRef.current;
@@ -329,103 +324,57 @@ function ModelExplorer() {
     };
     el.addEventListener("camera-change", handleCameraChange);
     return () => el.removeEventListener("camera-change", handleCameraChange);
-  }, [index]);
-
-  const goTo = (next: number) => {
-    setInteracted(false);
-    setIndex(((next % count) + count) % count);
-  };
+  }, []);
 
   return (
-    <div className="relative mb-6">
-      {/* Prev / next arrows, floating just outside the card edges */}
-      <button
-        type="button"
-        onClick={() => goTo(index - 1)}
-        aria-label="Previous dish"
-        className="hidden sm:grid absolute top-1/2 -translate-y-1/2 -left-5 z-10 h-11 w-11 place-items-center rounded-full surface hover-lift shadow-lg text-foreground"
-      >
-        <ChevronLeft className="h-5 w-5" />
-      </button>
-      <button
-        type="button"
-        onClick={() => goTo(index + 1)}
-        aria-label="Next dish"
-        className="hidden sm:grid absolute top-1/2 -translate-y-1/2 -right-5 z-10 h-11 w-11 place-items-center rounded-full surface hover-lift shadow-lg text-foreground"
-      >
-        <ChevronRight className="h-5 w-5" />
-      </button>
+    <div className="mb-6 surface rounded-3xl overflow-hidden grid lg:grid-cols-[1.1fr_1fr]">
+      <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[420px] bg-beige/60">
+        <model-viewer
+          ref={viewerRef}
+          src={media.models.katsu.glb}
+          ios-src={media.models.katsu.usdz}
+          alt="Interactive 3D model of a chicken katsu dish"
+          camera-controls
+          auto-rotate
+          auto-rotate-delay="1000"
+          rotation-per-second="18deg"
+          camera-orbit="0deg 45deg auto"
+          min-camera-orbit="auto 20deg auto"
+          max-camera-orbit="auto 80deg auto"
+          field-of-view="30deg"
+          ar
+          ar-modes="webxr scene-viewer quick-look"
+          shadow-intensity="1"
+          exposure="1.05"
+          style={{ width: "100%", height: "100%" }}
+        />
 
-      <div className="surface rounded-3xl overflow-hidden grid lg:grid-cols-[1.1fr_1fr]">
-        <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[420px] bg-beige/60">
-          <model-viewer
-            key={current.id}
-            ref={viewerRef}
-            src={current.glb}
-            ios-src={current.usdz}
-            alt={`Interactive 3D model of ${current.name}`}
-            camera-controls
-            auto-rotate
-            auto-rotate-delay="1000"
-            rotation-per-second="18deg"
-            camera-orbit="0deg 45deg auto"
-            min-camera-orbit="auto 20deg auto"
-            max-camera-orbit="auto 80deg auto"
-            field-of-view="30deg"
-            ar
-            ar-modes="webxr scene-viewer quick-look"
-            shadow-intensity="1"
-            exposure="1.05"
-            style={{ width: "100%", height: "100%" }}
-          />
-
-          {!interacted && (
-            <div className="pointer-events-none absolute inset-x-0 bottom-5 flex justify-center">
-              <div className="flex items-center gap-2 rounded-full bg-foreground/90 text-background px-4 py-2 text-xs font-semibold shadow-lg">
-                <span className="inline-flex animate-drag-hint">
-                  <Hand className="h-3.5 w-3.5" />
-                </span>
-                Drag to rotate
-              </div>
+        {!interacted && (
+          <div className="pointer-events-none absolute inset-x-0 bottom-5 flex justify-center">
+            <div className="flex items-center gap-2 rounded-full bg-foreground/90 text-background px-4 py-2 text-xs font-semibold shadow-lg">
+              <span className="inline-flex animate-drag-hint">
+                <Hand className="h-3.5 w-3.5" />
+              </span>
+              Drag to rotate
             </div>
-          )}
-
-          {/* Mobile-friendly prev/next, since the floating arrows are hidden below sm */}
-          <div className="sm:hidden absolute inset-x-0 bottom-3 flex justify-center gap-2">
-            {modelShowcase.map((m, i) => (
-              <button
-                key={m.id}
-                type="button"
-                aria-label={`Show ${m.name}`}
-                onClick={() => goTo(i)}
-                className={`h-2 w-2 rounded-full transition-colors ${
-                  i === index ? "bg-foreground" : "bg-foreground/25"
-                }`}
-              />
-            ))}
           </div>
-        </div>
+        )}
+      </div>
 
-        <div className="p-8 sm:p-10 flex flex-col justify-center gap-4">
-          <div className="flex items-center justify-between gap-4">
-            <SectionLabel>Live 3D model</SectionLabel>
-            <span className="text-xs font-mono text-muted-foreground">
-              {index + 1} / {count}
-            </span>
-          </div>
-          <h3 className="font-serif text-2xl sm:text-3xl tracking-tight">
-            {current.name}. A real scan, not a render.
-          </h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            Drag to rotate, scroll or pinch to zoom. This is the exact model a
-            guest sees after scanning the QR on their table, right down to the
-            texture on the plate.
-          </p>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            On a phone, tap the AR icon in the corner to place this dish on your
-            own table in augmented reality. Use the arrows to see the other dishes.
-          </p>
-        </div>
+      <div className="p-8 sm:p-10 flex flex-col justify-center gap-4">
+        <SectionLabel>Live 3D model</SectionLabel>
+        <h3 className="font-serif text-2xl sm:text-3xl tracking-tight">
+          This is a real scan, not a render.
+        </h3>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Drag to rotate, scroll or pinch to zoom. This is the exact model a
+          guest sees after scanning the QR on their table, right down to the
+          texture on the plate.
+        </p>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          On a phone, tap the AR icon in the corner to place this dish on your
+          own table in augmented reality.
+        </p>
       </div>
     </div>
   );
