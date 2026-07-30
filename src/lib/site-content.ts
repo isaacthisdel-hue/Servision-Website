@@ -202,9 +202,23 @@ export const dashboardPreview = {
   ],
 };
 
-export const founder = {
-  name: "Isaac Thisdel",
-  role: "Founder, Servision",
-  location: "West Island, Montréal",
-  bio: "A photo undersells a dish. AI and AR don't. Every restaurant menu looks like this in five years. I'm not waiting five years to build it.",
+export type Founder = {
+  name: string;
+  role: string;
+  location?: string;
+  bio: string;
 };
+
+export const founders: Founder[] = [
+  {
+    name: "Isaac Thisdel",
+    role: "Founder, Servision",
+    location: "West Island, Montréal",
+    bio: "A photo shows a dish. Servision lets customers experience it. This is where restaurants will be in 5 years. We're building it now.",
+  },
+  {
+    name: "Brandon Bayan",
+    role: "Co-founder & Social Media Manager",
+    bio: "We're not changing what's on the plate. We're changing how the world sees it. The best dishes deserve more than a name and a photo.",
+  },
+];

@@ -28,7 +28,7 @@ import {
   pricingTiers,
   faqs,
   dashboardPreview,
-  founder,
+  founders,
 } from "@/lib/site-content";
 import { SiteFooter as Footer } from "@/components/SiteFooter";
 
@@ -908,29 +908,40 @@ function FAQSection() {
 /* --------------------------------- Founder -------------------------------- */
 
 function FounderNote() {
-  const initials = founder.name
-    .split(" ")
-    .map((n) => n[0])
-    .join("");
   return (
     <section className="py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="surface rounded-3xl p-8 sm:p-10 grid sm:grid-cols-[auto_1fr] gap-6 sm:gap-8 items-center">
-          <div className="flex sm:flex-col items-center sm:items-start gap-4 sm:gap-3">
-            <div className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-foreground text-background font-serif text-xl">
-              {initials}
-            </div>
-            <div className="sm:mt-1">
-              <p className="font-semibold leading-tight">{founder.name}</p>
-              <p className="text-sm text-muted-foreground">{founder.role}</p>
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground mt-1">
-                <MapPin className="h-3 w-3" /> {founder.location}
+        <div className="grid lg:grid-cols-2 gap-5">
+          {founders.map((f) => {
+            const initials = f.name
+              .split(" ")
+              .map((n) => n[0])
+              .join("");
+            return (
+              <div
+                key={f.name}
+                className="surface rounded-3xl p-8 sm:p-10 flex flex-col gap-6"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-foreground text-background font-serif text-lg">
+                    {initials}
+                  </div>
+                  <div>
+                    <p className="font-semibold leading-tight">{f.name}</p>
+                    <p className="text-sm text-muted-foreground">{f.role}</p>
+                    {f.location && (
+                      <div className="flex items-center gap-1.5 text-xs text-muted-foreground mt-1">
+                        <MapPin className="h-3 w-3" /> {f.location}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <p className="text-base sm:text-lg text-foreground/85 leading-relaxed font-serif italic">
+                  "{f.bio}"
+                </p>
               </div>
-            </div>
-          </div>
-          <p className="text-base sm:text-lg text-foreground/85 leading-relaxed font-serif italic">
-            "{founder.bio}"
-          </p>
+            );
+          })}
         </div>
       </div>
     </section>
