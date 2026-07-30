@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   Check,
   Menu as MenuIcon,
+  X,
   ImageIcon,
   Eye,
   Hand,
@@ -96,6 +97,7 @@ function Wordmark({ className = "h-7" }: { className?: string }) {
 /* --------------------------------- Nav ---------------------------------- */
 
 function Nav() {
+  const [mobileOpen, setMobileOpen] = useState(false);
   const links = [
     { href: "#how", label: "How it works" },
     { href: "#showcase", label: "Showcase" },
@@ -107,7 +109,12 @@ function Nav() {
     <header className="fixed top-0 inset-x-0 z-50">
       <div className="mx-auto mt-4 max-w-6xl px-4">
         <div className="flex items-center justify-between rounded-full bg-background/85 backdrop-blur border border-ink/10 px-5 py-2.5 sm:px-6">
-          <a href="#" className="flex items-center" aria-label={brand.name}>
+          <a
+            href="#"
+            className="flex items-center"
+            aria-label={brand.name}
+            onClick={() => setMobileOpen(false)}
+          >
             <Wordmark className="h-5 sm:h-6" />
           </a>
           <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
@@ -121,11 +128,39 @@ function Nav() {
             <Button href={brand.ctaUrl} className="hidden sm:inline-flex !px-4 !py-2 text-xs">
               Get Started
             </Button>
-            <button className="md:hidden p-2 text-muted-foreground" aria-label="Menu">
-              <MenuIcon className="h-5 w-5" />
+            <button
+              type="button"
+              className="md:hidden p-2 text-muted-foreground"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen((v) => !v)}
+            >
+              {mobileOpen ? <X className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
             </button>
           </div>
         </div>
+
+        {mobileOpen && (
+          <nav className="md:hidden mt-2 rounded-3xl bg-background/95 backdrop-blur border border-ink/10 p-3 shadow-lg animate-fade-up">
+            <div className="flex flex-col">
+              {links.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-xl px-4 py-3 text-sm font-medium text-foreground hover:bg-beige transition-colors"
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+            <div className="mt-1 pt-3 border-t border-ink/10 px-1">
+              <Button href={brand.ctaUrl} className="w-full !justify-center">
+                Get Started <ArrowRight className="h-4 w-4" />
+              </Button>
+            </div>
+          </nav>
+        )}
       </div>
     </header>
   );
