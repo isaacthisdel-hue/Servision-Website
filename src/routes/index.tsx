@@ -184,10 +184,10 @@ function HeroMedia() {
     <div className="relative">
       <div className="relative aspect-[4/5] sm:aspect-[5/6] rounded-3xl overflow-hidden border border-ink/10 bg-background">
         <img
-          src={media.dishes.katsu}
-          alt="Chicken katsu plated dish, the actual food behind the 3D model guests see in AR"
+          src={media.heroPhone}
+          alt="Diner scanning a QR code at a restaurant table to see a dish in AR"
           width={1024}
-          height={1024}
+          height={1280}
           className="h-full w-full object-cover"
         />
       </div>
