@@ -185,9 +185,9 @@ function HeroMedia() {
       <div className="relative aspect-[4/5] sm:aspect-[5/6] rounded-3xl overflow-hidden border border-ink/10 bg-background">
         <img
           src={media.heroPhone}
-          alt="Diner scanning a QR code at a restaurant table to see a dish in AR"
-          width={1024}
-          height={1280}
+          alt="Diner photographing a croissant next to the table's QR code to bring up its AR view"
+          width={1014}
+          height={1268}
           className="h-full w-full object-cover"
         />
       </div>
