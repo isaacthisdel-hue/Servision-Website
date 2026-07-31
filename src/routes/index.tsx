@@ -328,7 +328,22 @@ function ModelExplorer() {
 
   return (
     <div className="mb-6 surface rounded-3xl overflow-hidden grid lg:grid-cols-[1.1fr_1fr]">
-      <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[420px] surface-stage">
+      <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[420px] overflow-hidden bg-ink">
+        {/* Real dining-room photo, used as a soft blurred backdrop so the
+            dish reads as sitting in an actual restaurant rather than a
+            studio void. Blurred + darkened so it never competes with the
+            model itself. */}
+        <img
+          src={media.restaurantAmbience}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover scale-110 blur-[3px] brightness-[0.5] saturate-[1.15]"
+        />
+        {/* Warm spotlight glow over the dish + a vignette back to near-black
+            at the edges, composited from the site's own brand color so it
+            reads as one consistent lighting scheme with the photo underneath. */}
+        <div className="absolute inset-0 surface-stage-photo" />
+
         <model-viewer
           ref={viewerRef}
           src={media.models.katsu.glb}
@@ -344,11 +359,11 @@ function ModelExplorer() {
           field-of-view="30deg"
           ar
           ar-modes="webxr scene-viewer quick-look"
-          environment-image="neutral"
+          environment-image={media.restaurantAmbience}
           shadow-intensity="1.6"
           shadow-softness="0.9"
-          exposure="0.65"
-          style={{ width: "100%", height: "100%" }}
+          exposure="0.85"
+          style={{ width: "100%", height: "100%", position: "relative", backgroundColor: "transparent" }}
         />
 
         {!interacted && (
