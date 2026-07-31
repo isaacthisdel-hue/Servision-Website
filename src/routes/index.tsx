@@ -328,12 +328,12 @@ function ModelExplorer() {
 
   return (
     <div className="mb-6 surface rounded-3xl overflow-hidden grid lg:grid-cols-[1.1fr_1fr]">
-      <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[420px] bg-beige/60">
+      <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[420px] surface-stage">
         <model-viewer
           ref={viewerRef}
           src={media.models.katsu.glb}
           ios-src={media.models.katsu.usdz}
-          alt="Interactive 3D model of a chicken katsu dish"
+          alt="Interactive 3D model of a chicken katsu dish, staged as if sitting on a restaurant table"
           camera-controls
           auto-rotate
           auto-rotate-delay="1000"
@@ -344,18 +344,20 @@ function ModelExplorer() {
           field-of-view="30deg"
           ar
           ar-modes="webxr scene-viewer quick-look"
-          shadow-intensity="1"
-          exposure="1.05"
+          environment-image="neutral"
+          shadow-intensity="1.6"
+          shadow-softness="0.9"
+          exposure="0.65"
           style={{ width: "100%", height: "100%" }}
         />
 
         {!interacted && (
           <div className="pointer-events-none absolute inset-x-0 bottom-5 flex justify-center">
-            <div className="flex items-center gap-2 rounded-full bg-foreground/90 text-background px-4 py-2 text-xs font-semibold shadow-lg">
+            <div className="flex items-center gap-2 rounded-full bg-background/90 text-foreground px-4 py-2 text-xs font-semibold shadow-lg">
               <span className="inline-flex animate-drag-hint">
                 <Hand className="h-3.5 w-3.5" />
               </span>
-              Drag to rotate
+              Move around like you're at the table
             </div>
           </div>
         )}
