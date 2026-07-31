@@ -180,55 +180,16 @@ function Nav() {
   the <HeroMedia /> component below.
 */
 function HeroMedia() {
-  const viewerRef = useRef<HTMLElement>(null);
-  const [interacted, setInteracted] = useState(false);
-
-  useEffect(() => {
-    const el = viewerRef.current;
-    if (!el) return;
-    const handleCameraChange = (e: Event) => {
-      const detail = (e as CustomEvent<{ source?: string }>).detail;
-      if (detail?.source === "user-interaction") {
-        setInteracted(true);
-      }
-    };
-    el.addEventListener("camera-change", handleCameraChange);
-    return () => el.removeEventListener("camera-change", handleCameraChange);
-  }, []);
-
   return (
     <div className="relative">
       <div className="relative aspect-[4/5] sm:aspect-[5/6] rounded-3xl overflow-hidden border border-ink/10 bg-background">
-        <model-viewer
-          ref={viewerRef}
-          src={media.models.katsu.glb}
-          ios-src={media.models.katsu.usdz}
-          alt="Interactive 3D scan of a chicken katsu dish, the actual model a guest sees after scanning the table QR code"
-          camera-controls
-          auto-rotate
-          auto-rotate-delay="1000"
-          rotation-per-second="18deg"
-          camera-orbit="0deg 45deg auto"
-          min-camera-orbit="auto 20deg auto"
-          max-camera-orbit="auto 80deg auto"
-          field-of-view="30deg"
-          ar
-          ar-modes="webxr scene-viewer quick-look"
-          shadow-intensity="1"
-          exposure="1.05"
-          style={{ width: "100%", height: "100%" }}
+        <img
+          src={media.dishes.katsu}
+          alt="Chicken katsu plated dish, the actual food behind the 3D model guests see in AR"
+          width={1024}
+          height={1024}
+          className="h-full w-full object-cover"
         />
-
-        {!interacted && (
-          <div className="pointer-events-none absolute inset-x-0 bottom-5 flex justify-center">
-            <div className="flex items-center gap-2 rounded-full bg-foreground/90 text-background px-4 py-2 text-xs font-semibold shadow-lg">
-              <span className="inline-flex animate-drag-hint">
-                <Hand className="h-3.5 w-3.5" />
-              </span>
-              Drag to rotate
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Floating detail cards — fill the space around the hero image on
