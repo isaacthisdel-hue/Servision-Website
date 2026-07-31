@@ -40,13 +40,6 @@ import dishKatsuImg from "@/assets/dish-katsu.png";
 import katsuModelGlb from "@/assets/models/katsu.glb?url";
 import katsuModelUsdz from "@/assets/models/katsu.usdz?url";
 
-// --- Restaurant ambience -------------------------------------
-// A real dining-room photo, used two ways in the 3D viewer:
-// as a blurred backdrop layer, and as the model's environment
-// image so its reflections and ambient light pick up the same
-// warm tones as the room instead of a generic studio look.
-import restaurantAmbienceImg from "@/assets/restaurant-ambience.jpg";
-
 export const media = {
   logo: logoImg,
   heroPhone: heroPhoneImg,
@@ -65,7 +58,6 @@ export const media = {
       usdz: katsuModelUsdz,
     },
   },
-  restaurantAmbience: restaurantAmbienceImg,
 };
 
 // ============================================================

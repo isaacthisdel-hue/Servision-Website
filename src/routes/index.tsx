@@ -328,27 +328,12 @@ function ModelExplorer() {
 
   return (
     <div className="mb-6 surface rounded-3xl overflow-hidden grid lg:grid-cols-[1.1fr_1fr]">
-      <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[420px] overflow-hidden bg-ink">
-        {/* Real dining-room photo, used as a soft blurred backdrop so the
-            dish reads as sitting in an actual restaurant rather than a
-            studio void. Blurred + darkened so it never competes with the
-            model itself. */}
-        <img
-          src={media.restaurantAmbience}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover scale-110 blur-[3px] brightness-[0.5] saturate-[1.15]"
-        />
-        {/* Warm spotlight glow over the dish + a vignette back to near-black
-            at the edges, composited from the site's own brand color so it
-            reads as one consistent lighting scheme with the photo underneath. */}
-        <div className="absolute inset-0 surface-stage-photo" />
-
+      <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[420px] bg-beige/60">
         <model-viewer
           ref={viewerRef}
           src={media.models.katsu.glb}
           ios-src={media.models.katsu.usdz}
-          alt="Interactive 3D model of a chicken katsu dish, staged as if sitting on a restaurant table"
+          alt="Interactive 3D model of a chicken katsu dish"
           camera-controls
           auto-rotate
           auto-rotate-delay="1000"
@@ -359,20 +344,18 @@ function ModelExplorer() {
           field-of-view="30deg"
           ar
           ar-modes="webxr scene-viewer quick-look"
-          environment-image={media.restaurantAmbience}
-          shadow-intensity="1.6"
-          shadow-softness="0.9"
-          exposure="0.85"
-          style={{ width: "100%", height: "100%", position: "relative", backgroundColor: "transparent" }}
+          shadow-intensity="1"
+          exposure="1.05"
+          style={{ width: "100%", height: "100%" }}
         />
 
         {!interacted && (
           <div className="pointer-events-none absolute inset-x-0 bottom-5 flex justify-center">
-            <div className="flex items-center gap-2 rounded-full bg-background/90 text-foreground px-4 py-2 text-xs font-semibold shadow-lg">
+            <div className="flex items-center gap-2 rounded-full bg-foreground/90 text-background px-4 py-2 text-xs font-semibold shadow-lg">
               <span className="inline-flex animate-drag-hint">
                 <Hand className="h-3.5 w-3.5" />
               </span>
-              Move around like you're at the table
+              Drag to rotate
             </div>
           </div>
         )}
