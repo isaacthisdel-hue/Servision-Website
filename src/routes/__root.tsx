@@ -12,6 +12,17 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
+// Favicon — imported through Vite (like every other image asset here) so
+// it gets a stable, content-hashed URL. That matters for favicons
+// specifically: browsers cache a static "/favicon.png" path very
+// aggressively, sometimes indefinitely, so a plain unchanging path can
+// keep showing a stale icon even after the file is swapped out. A hashed
+// URL changes whenever the image changes, which forces a real refetch.
+import favicon32 from "../assets/favicon/favicon-32.png";
+import favicon192 from "../assets/favicon/favicon-192.png";
+import favicon512 from "../assets/favicon/favicon-512.png";
+import appleTouchIcon from "../assets/favicon/apple-touch-icon.png";
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -94,7 +105,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: favicon32 },
+      { rel: "icon", type: "image/png", sizes: "192x192", href: favicon192 },
+      { rel: "icon", type: "image/png", sizes: "512x512", href: favicon512 },
+      { rel: "apple-touch-icon", sizes: "180x180", href: appleTouchIcon },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
