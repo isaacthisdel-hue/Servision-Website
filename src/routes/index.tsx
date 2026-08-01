@@ -708,15 +708,23 @@ function AnalyticsPreview() {
           </div>
 
           <div className="flex items-end gap-2 h-28 mb-2">
-            {dashboardPreview.bars.map((b) => (
-              <div key={b.label} className="flex-1 flex flex-col items-center gap-2">
-                <div
-                  className="w-full rounded-md bg-accent/70"
-                  style={{ height: `${(b.value / maxBar) * 100}%` }}
-                />
-                <span className="text-[10px] text-muted-foreground">{b.label}</span>
-              </div>
-            ))}
+            {dashboardPreview.bars.map((b) => {
+              // Fixed pixel height (not a CSS percentage): the column
+              // wrapper below has no explicit height for a percentage to
+              // resolve against, so a "%" height here silently collapses
+              // to zero. A max-76px bar leaves room for the gap + label
+              // underneath, inside the 112px (h-28) chart area.
+              const barHeight = Math.max(6, Math.round((b.value / maxBar) * 76));
+              return (
+                <div key={b.label} className="flex-1 flex flex-col items-center gap-2">
+                  <div
+                    className="w-full rounded-md bg-accent/70"
+                    style={{ height: `${barHeight}px` }}
+                  />
+                  <span className="text-[10px] text-muted-foreground">{b.label}</span>
+                </div>
+              );
+            })}
           </div>
 
           <div className="mt-4 rounded-xl border border-ink/10 bg-background px-4 py-3 flex items-start gap-3">
