@@ -221,4 +221,9 @@ export const founders: Founder[] = [
     role: "Co-founder & Social Media Manager",
     bio: "We're not changing what's on the plate. We're changing how the world sees it. The best dishes deserve more than a name and a photo.",
   },
+  {
+    name: "Raphael Marques",
+    role: "Team",
+    bio: "Life is meaningless.",
+  },
 ];
